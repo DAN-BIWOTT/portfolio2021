@@ -1,13 +1,13 @@
 import React from "react";
 import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn } from "./HeaderElements";
-
+import logo from "../../Assets/logo.png"
 const Header = ({ toggle }) => {
   return (
     <div className="Container">
       <Nav>
         <Logo to="/">
           <img
-            src="https://gurupawar.github.io/portfolio/assets/logo.png"
+            src={logo}
             alt="logo"
           />
         </Logo>
