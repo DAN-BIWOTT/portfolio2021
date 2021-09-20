@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn } from "./HeaderElements";
-import logo from "../../Assets/logo.png"
+import logo from "../../Assets/mobile.svg"
 const Header = ({ toggle }) => {
   return (
     <div className="Container">

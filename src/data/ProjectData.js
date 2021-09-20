@@ -1,38 +1,46 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
-    img: "https://gurupawar.github.io/portfolio/assets/project_1.png",
-    title: "Janice Photography Google Vision",
-    description: "Photography gallery management using ML",
-    tech_stack: "Html, Css, JS, React, Node, Google Vision",
-    github_url: "https://github.com/gurupawar/spense",
-    demo_url: "https://youtu.be/nhww7k0ricU",
-  },
-  {
-    img: "https://gurupawar.github.io/portfolio/assets/project_2.png",
-    title: "Fiber",
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
+    title: "Tutorials",
     description:
-      "An online portfolio generator. Great to practice flex/grid layouts, absolute positioning and sliders.",
-    tech_stack: "Html, Css, Javascript",
-    github_url: "https://github.com/gurupawar/fiber",
-    demo_url: "https://gurupawar.github.io/fiber/",
+      "Created a platform where I give tutorials on my various areas of interest.",
+    tech_stack: "Ruby on Rails, Html, Css, Scss, ruby, Js",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://sghost.herokuapp.com/",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/portfolio.png",
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/easyplacement.png?raw=true",
+    title: "Easy University Placement",
+    description:
+      "Designed a platform that makes it easy to get a list of courses and universities you may attend depending on your kcse results.",
+    tech_stack: "Html, Css, Javascript",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://dan-biwott.github.io/easyKUCCPS/analysis.html",
+  },
+  {
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/portfolio.png?raw=true",
     title: "Portfolio",
     description: "Ofcourse i made my own personal portfolio website.",
     tech_stack: "Reactjs, Css",
-    github_url: "https://github.com/gurupawar/portfolio-react",
-    demo_url: "https://gportfolio.vercel.app/",
+    github_url: "https://github.com/DAN-BIWOTT/portfolio2021",
+    demo_url: "https://biwott.club/",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/project_3.png",
-    title: "Ecommerce website",
-    description:
-      "Created simple ecommerce website using reactjs and react-use-cart plugin.",
-    tech_stack: "Reactjs, Css",
-    github_url: "https://github.com/gurupawar/ecommerce-react-app",
-    demo_url: "https://ecommerce-react-app.vercel.app/",
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/janicephotography.png?raw=true",
+    title: "Janice Photography Google Vision",
+    description: "Photography gallery management using ML",
+    tech_stack: "Html, Css, JS, React, Node, Google Vision",
+    github_url: "https://github.com/DAN-BIWOTT/google-vision-React-firebase",
+    demo_url: "https://youtu.be/nhww7k0ricU",
+  },
+  {
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/car%20maintainance.png?raw=true",
+    title: "Car Maintainance system",
+    description: "I made a car maintainance system that lets you know when to take your car for a service check.",
+    tech_stack: "Flutter, Dart",
+    github_url: "https://github.com/DAN-BIWOTT/google-vision-React-firebase",
+    demo_url: "https://youtu.be/Y3KCznPmllI",
   },
 ];
 
@@ -79,4 +87,12 @@ export const stackList = [
     img: "https://www.svgrepo.com/show/349485/python.svg",
     name: "Python",
   },
+  {
+    img: "https://img.icons8.com/color/48/000000/dart.png",
+    name: "Dart",
+  },
+  {
+    img: "https://img.icons8.com/color/48/000000/flutter.png",
+    name: "Flutter",
+  }
 ];
