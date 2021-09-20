@@ -30,7 +30,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            @Lloyd
+            @Biwott
           </a>{" "}
         </span>
       </div>
