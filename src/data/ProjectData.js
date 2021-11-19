@@ -48,15 +48,15 @@ export const ProjectList = [
 
 export const stackList = [
   {
-    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/html-flat.png",
+    img: "https://img.icons8.com/nolan/50/html.png",
     name: "HTML",
   },
   {
-    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/css-icon.png",
+    img: "https://img.icons8.com/ios-filled/50/000000/css3.png",
     name: "CSS",
   },
   {
-    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/js.png",
+    img: "https://img.icons8.com/ios-filled/50/000000/javascript.png",
     name: "JavaScript",
   },
   {
@@ -64,11 +64,15 @@ export const stackList = [
     name: "React",
   },
   {
-    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/sass.jpg",
+    img: "https://img.icons8.com/fluency/48/000000/gatsbyjs.png",
+    name: "Gatsby",
+  },
+  {
+    img: "https://img.icons8.com/color/48/000000/sass.png",
     name: "Scss",
   },
   {
-    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/git.jpg",
+    img: "https://img.icons8.com/ios-filled/50/000000/git.png",
     name: "Git",
   },
   {
