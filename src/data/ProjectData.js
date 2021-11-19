@@ -48,15 +48,15 @@ export const ProjectList = [
 
 export const stackList = [
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/html5.svg",
+    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/html-flat.png",
     name: "HTML",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/css3.svg",
+    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/css-icon.png",
     name: "CSS",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/javascript.svg",
+    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/js.png",
     name: "JavaScript",
   },
   {
@@ -64,11 +64,11 @@ export const stackList = [
     name: "React",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/sass.svg",
+    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/sass.jpg",
     name: "Scss",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/git.svg",
+    img: "https://github.com/DAN-BIWOTT/portfolio2021/blob/5507db8ae55abc97da5c16d17b165a6730667b1c/src/Assets/git.jpg",
     name: "Git",
   },
   {
