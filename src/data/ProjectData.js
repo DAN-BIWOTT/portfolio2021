@@ -2,6 +2,15 @@
 export const ProjectList = [
   {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
+    title: "Mulli Software Solutions",
+    description:
+      "Client's website designed and built to represent their brand.",
+    tech_stack: "Gatsby, React, Html, Css, Scss, Js",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://sghost.herokuapp.com/",
+  },
+  {
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
     title: "Tutorials",
     description:
       "Created a platform where I give tutorials on my various areas of interest.",
