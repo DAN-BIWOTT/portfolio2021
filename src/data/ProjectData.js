@@ -1,13 +1,13 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
-    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/mulli.png?raw=true",
     title: "Mulli Software Solutions",
     description:
       "Client's website designed and built to represent their brand.",
     tech_stack: "Gatsby, React, Html, Css, Scss, Js",
     github_url: "https://github.com/DAN-BIWOTT/",
-    demo_url: "https://sghost.herokuapp.com/",
+    demo_url: "https://happy-colden-1f06c5.netlify.app/",
   },
   {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
