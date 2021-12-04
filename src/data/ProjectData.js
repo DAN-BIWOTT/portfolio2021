@@ -1,6 +1,15 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/jodawaki.png?raw=true",
+    title: "Jodawaki enterprises",
+    description:
+      "Client's Start-up company website. Designed and built to accomodate payments of hosting services and other company service offers.",
+    tech_stack: "Gatsby, React, GraphQl, node, mongodb, Html, Css, Scss, Js",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://wizardly-bose-4f1b13.netlify.app/",
+  },
+  {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/Unreal.png?raw=true",
     title: "Unreal Destinations",
     description:
