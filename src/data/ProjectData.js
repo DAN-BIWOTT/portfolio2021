@@ -1,10 +1,19 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
+    img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/97628efc30789b76ae91c6d571e983a11fc450fd/assets/img/UniversityOfNurses.png",
+    title: "University Of Nurses",
+    description:
+      "Client's Start-up Content Management system. Designed and built to accommodate nursing assignments and academic paper purchase.",
+    tech_stack: "Gatsby, React, GraphQl, Firebase, Hasura, Netlify, Postgres, Heroku, Html, Css, Js",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://elastic-mahavira-532e6e.netlify.app/",
+  },
+  {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/jodawaki.png?raw=true",
     title: "Jodawaki enterprises",
     description:
-      "Client's Start-up company website. Designed and built to accomodate payments of hosting services and other company service offers.",
+      "Client's Start-up company website. Designed and built to accommodate payments of hosting services and other company service offers.",
     tech_stack: "Gatsby, React, GraphQl, node, mongodb, Html, Css, Scss, Js",
     github_url: "https://github.com/DAN-BIWOTT/",
     demo_url: "https://wizardly-bose-4f1b13.netlify.app/",
@@ -93,6 +102,10 @@ export const stackList = [
   {
     img: "https://img.icons8.com/fluency/48/000000/gatsbyjs.png",
     name: "Gatsby",
+  },
+  {
+    img: "https://img.icons8.com/fluency/48/000000/gatsbyjs.png",
+    name: "Hasura",
   },
   {
     img: "https://img.icons8.com/color/48/000000/sass.png",
