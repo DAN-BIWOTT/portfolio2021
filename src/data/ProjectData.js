@@ -104,7 +104,7 @@ export const stackList = [
     name: "Gatsby",
   },
   {
-    img: "https://img.icons8.com/fluency/48/000000/gatsbyjs.png",
+    img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/master/assets/img/hasura.png",
     name: "Hasura",
   },
   {
