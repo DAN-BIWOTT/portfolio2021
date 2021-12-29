@@ -108,6 +108,10 @@ export const stackList = [
     name: "Hasura",
   },
   {
+    img: "https://img.icons8.com/color/48/000000/graphql.png",
+    name: "GraphQl",
+  },
+  {
     img: "https://img.icons8.com/color/48/000000/sass.png",
     name: "Scss",
   },

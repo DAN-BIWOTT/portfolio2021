@@ -36,6 +36,7 @@ function About() {
                 <TechName>{stack.name}</TechName>
               </Tech>
             ))}
+            <a href="https://icons8.com/icon/zdI5E8moxhs-/graphql">Icons by Icons8</a>
           </Technologies>
         </div>
       </div>
