@@ -5,27 +5,27 @@ export const ProjectList = [
     title: "University Of Nurses",
     description:
       "Client's Start-up Content Management system. Designed and built to accommodate nursing assignments and academic paper purchase.",
-    tech_stack: "Gatsby, React, GraphQl, Firebase, Hasura, Netlify, Postgres, Heroku, Html, Css, Js",
+    tech_stack: "React, GraphQl, Firebase, Hasura, Netlify, Postgres, Heroku, Html, Css, Js",
     github_url: "https://github.com/DAN-BIWOTT/",
-    demo_url: "https://elastic-mahavira-532e6e.netlify.app/",
-  },
-  {
-    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/jodawaki.png?raw=true",
-    title: "Jodawaki enterprises",
-    description:
-      "Client's Start-up company website. Designed and built to accommodate payments of hosting services and other company service offers.",
-    tech_stack: "Gatsby, React, GraphQl, node, mongodb, Html, Css, Scss, Js",
-    github_url: "https://github.com/DAN-BIWOTT/",
-    demo_url: "https://wizardly-bose-4f1b13.netlify.app/",
+    demo_url: "https://dulcet-manatee-441362.netlify.app/",
   },
   {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/Unreal.png?raw=true",
     title: "Unreal Destinations",
     description:
       "Client's website landing page Design with video background to represent their brand.",
-    tech_stack: "Gatsby, React, GraphQl,Html, Css, Scss, Js",
+    tech_stack: "React, GraphQl,Html, Css, Scss, Js",
     github_url: "https://github.com/DAN-BIWOTT/",
-    demo_url: "https://sharp-mclean-ae1de2.netlify.app/",
+    demo_url: "https://gastby-travel-4klnetk5v-dan-biwott.vercel.app/",
+  },
+  {
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/SiriPay.png?raw=true",
+    title: "Siri Pay Api",
+    description:
+      "Client's api. It receives mobile payments, encrypts personal transaction info then forwards the transaction",
+    tech_stack: "NodeJs, Express, mongodb, Html,Scss",
+    github_url: "https://glitch.com/edit/#!/ofa-test",
+    demo_url: "https://ofa-test.glitch.me",
   },
   {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/mulli.png?raw=true",
@@ -34,7 +34,7 @@ export const ProjectList = [
       "Client's website designed and built to represent their brand.",
     tech_stack: "Gatsby, React, Html, Css, Scss, Js",
     github_url: "https://github.com/DAN-BIWOTT/",
-    demo_url: "https://happy-colden-1f06c5.netlify.app/",
+    demo_url: "https://mulli-software-solutions.vercel.app/",
   },
   {
     img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/tutorials.png?raw=true",
