@@ -1,6 +1,15 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
+    img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
+    title: "Arasaka Neural Bastion",
+    description:
+      "An ongoing Research Project focused on developing and refining advanced trading strategies using Machine Learning.",
+    tech_stack: "Laravel, MySql, Heroku, AWS EC2, Python, MQL5",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://arasaka-neural-bastion-c3e30101489a.herokuapp.com/",
+  },
+  {
     img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/97628efc30789b76ae91c6d571e983a11fc450fd/assets/img/UniversityOfNurses.png",
     title: "University Of Nurses",
     description:
