@@ -2,6 +2,15 @@
 export const ProjectList = [
   {
     img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
+    title: "Precision is Justice",
+    description:
+      "A personal collection of machine learning and AI experiments, projects, and explorations — showcasing practical applications, novel ideas, and hands-on coding.",
+    tech_stack: "PyTorch, TensorFlow, Scikit-learn, ONNX, NLP, Adversarial ML",
+    github_url: "https://github.com/DAN-BIWOTT/",
+    demo_url: "https://dan-biwott.github.io/",
+  },
+  {
+    img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
     title: "Arasaka Neural Bastion",
     description:
       "An ongoing Research Project focused on developing and refining advanced trading strategies using Machine Learning.",
@@ -19,7 +28,7 @@ export const ProjectList = [
     demo_url: "https://dulcet-manatee-441362.netlify.app/",
   },
   {
-    img: "https://github.com/DAN-BIWOTT/DAN-BIWOTT.github.io/blob/master/assets/img/Unreal.png?raw=true",
+    img: "https://github.com/DAN-BIWOTT/DAN-BIWO¬TT.github.io/blob/master/assets/img/Unreal.png?raw=true",
     title: "Unreal Destinations",
     description:
       "Client's website landing page Design with video background to represent their brand.",
