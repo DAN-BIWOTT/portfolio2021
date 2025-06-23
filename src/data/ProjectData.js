@@ -1,7 +1,7 @@
 // --------------------------------------- Project List
 export const ProjectList = [
   {
-    img: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
+    img: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/94bfdf48922a7388045f48fa6898176e3a94d787/src/Assets/ml_blog.png",
     title: "Precision is Justice",
     description:
       "A personal collection of machine learning and AI experiments, projects, and explorations — showcasing practical applications, novel ideas, and hands-on coding.",
