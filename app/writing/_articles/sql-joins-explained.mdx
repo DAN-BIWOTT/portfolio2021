@@ -1,0 +1,129 @@
+---
+title: "SQL Joins Explained"
+publishedAt: "2024-09-03"
+lastModified: "2024-09-03"
+summary: "SQL Joins Explained"
+preview: "One of the most powerful tools when working with relational data in SQL is Join Queries. SQL allows us to combine data  from multiple tables into a single result set which enables us to retrieve data spread in multiple tables just using a single command. In this article, we'll explore the different types of SQL joins, focusing on how they work in PostgreSQL."
+published: "yes"
+featured: "yes"
+---
+
+One of the most powerful tools when working with relational data in SQL is Join Queries. SQL allows us to combine data  from multiple tables into a single result set which enables us to retrieve data spread in multiple tables just using a single command. In this article, we'll explore the different types of SQL joins, focusing on how they work in PostgreSQL.
+
+## 1. INNER JOIN
+
+An `INNER JOIN` returns only the rows where there is a match in both tables. In the example below, only the rows from the `users` table that have an order in the `orders` table will be returned.
+
+```sql 
+SELECT 
+    users.user_id,
+    users.user_name,
+    orders.order_id
+FROM 
+    users 
+INNER JOIN 
+    orders 
+ON  
+    users.user_id = orders.fk_user_id;
+```
+
+Inner joins are most commonly used join operations because most of the time, we only want to retrieve data where a match exists in both tables.
+
+## 2. LEFT JOIN (or LEFT OUTER JOIN)
+
+A `LEFT JOIN` returns all rows from the left table, and the matched rows from the right table. If no match is found, the result will contain `NULL` for columns for the right table. In the example below, the query returns all rows in the `users` table, including those without matching orders, where the `orders_id` column will be `NULL` for these users.
+
+```sql 
+SELECT 
+    users.user_id,
+    users.user_name,
+    orders.order_id
+FROM 
+    users 
+LEFT JOIN 
+    orders 
+ON  
+    users.user_id = orders.fk_user_id;
+```
+
+A left join like this might be useful when generating reports. In such a case, you will want to include all users even those who have not placed an order.
+
+## 3. RIGHT JOIN (or RIGHT OUTER JOIN)
+
+As the name suggests, `RIGHT JOIN` is the opposite of `LEFT JOIN`. It returns all the rows from the right table,  and the matched rows from the left table. If no results are found, the columns of the left table will contain `NULL`. The query below will return all the orders in the `order` table, including those which have no corresponding user in the `users` table.
+
+```sql 
+SELECT 
+    users.user_id,
+    users.user_name,
+    orders.order_id
+FROM 
+    users 
+RIGHT JOIN 
+    orders 
+ON  
+    users.user_id = orders.fk_user_id;
+```
+
+Left and right outer joins are functionally equivalent. You can replace one with the other by simply switching the order of the tables around.
+
+## 4. FULL OUTER JOIN 
+
+A `FULL OUTER JOIN` returns rows where there is a match in either table. It returns rows from both tables and fills `NULL` for non-matching rows in both sides. The query below will return all users and all orders, with `NULL` values where there is no match.
+
+```sql 
+SELECT 
+    users.user_id,
+    users.user_name,
+    orders.order_id
+FROM 
+    users 
+FULL OUTER JOIN 
+    orders 
+ON  
+    users.user_id = orders.fk_user_id;
+```
+
+A full outer join is useful for those comprehensive reports where you want all possible data to be included.
+
+## 5. CROSS JOIN 
+
+A `CROSS JOIN` returns the cartesian product of two tables, meaning each row from the first is combined with every row from the second table. The query below returns all possible combinations of users and products, regardless of any matching condition.
+
+```sql 
+SELECT 
+    users.user_name,
+    products.product_name 
+FROM 
+    users 
+CROSS JOIN 
+    products;
+```
+
+You can get the same result as above using what is usually referred as `implicit cross joins`. This is where you do a select from multiple tables separated by a comma as shown below.
+
+```sql 
+SELECT * FROM users, products;
+```
+
+## 6. SELF JOIN
+
+A `SELF JOIN` is when a table is joined with itself. This can be useful for hierarchical data or for comparisons within the same table. In the example below, we are joining the `employees` table to itself to show employees and their managers.
+
+```sql 
+SELECT 
+    e1.name AS employee,
+    e2.name AS manager
+FROM 
+    employees e1
+JOIN 
+    employees e2 
+ON 
+    e1.manager_id = e2.employee_id;
+```
+
+##  Conclusion
+
+As you might have noticed, I have qualified the column names with the table names in the examples above. This is a good practice as it prevents the query from failing if we introduce duplicate columns to the tables in the future.
+
+Understanding SQL Joins is essential for working effectively with relational databases. Each type of join serves a specific purpose, and knowing how and when to use them will make working with complex datasets much easier.

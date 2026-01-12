@@ -1,0 +1,77 @@
+---
+title: "My Favourite Excel Data Analytics Tools"
+publishedAt: "2024-09-21"
+lastModified: "2024-09-21"
+summary: "My Favourite Excel Data Analytics Tools"
+preview: "In my opinion the best features that Excel (and by  extension Power BI) offer for Data Analytics are `Tables`, `Power Query` and `Pivot Tables`. In this article, I will quickly go over each of them and why they are essential in most data analytics tasks."
+published: "no"
+featured: "no"
+---
+
+In my opinion the best features that Excel (and by  extension Power BI) offer for Data Analytics are `Tables`, `Power Query` and `Pivot Tables`. In this article, I will quickly go over each of them and why they are essential in most data analytics tasks.
+
+## Tables
+
+A table is a core concept of Excel and we'll see why shortly. Let's start with the data below which contains rows of fictional employees derived from <em>Oliver Twist</em> by Charles Dickens.
+
+<Image
+    src="/writing/excel-analytics-tools/1-initial-data.png"
+    alt=""
+    width={530}
+    height={183}
+    className="rounded-md shadow-md"
+/>
+
+This data has rows and columns but it is not an "official" table yet. To turn it into a table, press `CTRL + T` and make sure 'My table has headers' is selected. You'll notice the format change to below.
+
+<Image
+    src="/writing/excel-analytics-tools/2-turn-to-table.png"
+    alt=""
+    width={627}
+    height={183}
+    className="rounded-md shadow-md"
+/>
+
+This is now an "official" table. If you look at the ribbon in Excel, a new option for table design shows up. So why are tables good? First, structured data is key in doing any good analysis, and tables in Excel enforce structure in data. Tables also give us  a nice starting  formatting such as  alternating rows for easy readability, and inserting a row doesn't mess up this alternating formatting. When you scroll down, the headings always show. There are several of these nice little things, and technically you could achieve the same results in Excel without turning the data into a table but keep in mind we got all this just with one  `CTRL + T`
+
+But my favorite feature about tables is that formulas spill down. In the table above for example, let's say we want to add another column for the full name of the employees. we just need to go to the top row and add the formula, and when we press enter the whole column is filled as shown below. 
+
+<Image
+    src="/writing/excel-analytics-tools/3-formula-spill-down.png"
+    alt=""
+    width={921}
+    height={178}
+    className="rounded-md shadow-md"
+/>
+
+<Image
+    src="/writing/excel-analytics-tools/4-formula-spill-down.png"
+    alt=""
+    width={724}
+    height={177}
+    className="rounded-md shadow-md"
+/>
+
+Imagine if  our table had 1 million rows, then we would have  to copy this down which  would take ages. And if you are 100,000 rows in and decide the delimiter should be a dash or colon instead of a space, you dont have to go to the top and change the formula for all cells in the column. Just change the formula for the 100,000th row to replace `" "` with a `"-"` and the whole table is automatically updated. That's really cool. And having formulas be consistent in a table is key in good data analysis and tables enforce that.
+
+Now let's say, we quickly wanted to find the sum  for the January 1838 column. With tables, we can just type `=SUM()` click on any of the cells of the column we want, press `CTRL + SpaceBar` which would select the whole column as shown below instead of having to select the top and bottom cells of the column.
+
+<Image
+    src="/writing/excel-analytics-tools/5-selecting-column.png"
+    alt=""
+    width={919}
+    height={183}
+    className="rounded-md shadow-md"
+/>
+
+Also as you have noticed, the formula is also now more meaningful, it tells you you're selecting `Table1` and column `Jan  1838`. And it's even better when we name our tables. Just click on a cell in the table, select Table Design in the Excel Ribbon and give it a sensible name under the 'Table Name' like Employees. Having names for your tables further builds up my first point about tables enforcing structure in your data.
+
+And keep in mind all these advantages stay when you add more information to the table. Adding rows will automatically  update  the formulas and so on.
+
+## Power Query 
+
+[This article is still a work in progress, I plan to add the sections on Power Query, Pivot Tables and Power Pivot next weekend so come back soon :)]
+
+## Pivot Tables 
+
+## Power Pivot

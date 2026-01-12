@@ -1,0 +1,214 @@
+---
+title: "Upgrading a Five-Year-Old Linux System"
+publishedAt: "2024-09-30"
+lastModified: "2024-09-30"
+summary: "Upgrading a Five Year Old Linux Dual Boot to Latest LTS Version"
+preview: "In 2018, I decided to dual-boot my HP laptop with Windows 10 and Ubuntu 16.04 because I needed to work in a Linux environment for a student project I was part of at UBC. Back then I was in an Engineering Design Team called Sailbot, working on an autonomous control system for a sailboat. Ubuntu became my daily driver at the time as I navigated the complexities of Gazebo and Robot Operating System (ROS) making Linux an essential tool for my development work."
+published: "yes"
+featured: "no"
+---
+
+In 2018, I decided to dual-boot my HP laptop with Windows 10 and Ubuntu 16.04 because I needed to work in a Linux environment for a student project I was part of at UBC. Back then I was in an Engineering Design Team called Sailbot, working on an autonomous control system for a sailboat. Ubuntu became my daily driver at the time as I navigated working with Gazebo and Robot Operating System (ROS) modules making Linux an essential tool for my development work.
+
+Fast forward to today, my computing setup has now changed to using a Macbook Pro as my primary development machine for my personal projects and a Dell running Windows 11 at work. However, my trusty Windows 10 + Linux HP laptop is still kicking - but Ubuntu 16.04 is long past its prime. With the initial 5 years LTS standard maintenance ending in 2021 and it being generally outdated, it was time for an upgrade.
+
+In this article I'll walk you through my journey upgrading from Ubuntu 16.04 to 22.04 LTS. I'll cover everything from preparing for the upgrade to trouble shooting the inevitable issues that arise when updating  a five-year-old system.
+
+## Preparing for the  Upgrade
+
+#### Assessing the current system
+
+Before jumping into the upgrade, I needed to assess whether my HP laptop's hardware could comfortably handle the jump from Ubuntu 16.04 to 22.04. Fortunately, Ubuntu has relatively modest system requirements, and my hardware - although seven years old - was still up to the task. The most important factor was ensuring compatibility with my laptop's current dual-boot setup with Windows 10 and making sure that any critical drivers wouldn't cause issues during the upgrade. In fact, what had led me to this upgrade was an issue with my touchpad in Linux, where the pointer would randomly drift across the screen without any touch input. This was more noticeable when typing. My temporary fix was to disable the touchpad on Linux and rely on an external mouse, but upgrading offered a more permanent and effective solution. 
+
+Since Ubuntu 16.04 is now several releases behind the current LTS version, upgrading directly to 22.04 was not possible. I would first need to upgrade to 18.04, then 20.04, and finally to 22.04, which added some extra steps and potential challenges. The latest LTS version (Ubuntu 24.04) had just been released a few months prior at the time of writing this article but I ultimately decided to stop at 22 since it had been stable for longer.
+
+#### Backing Up Data 
+
+With system checks out of the way, my next priority was backing up everything - both on the Windows partition of the disk and the Linux partition. Losing important files - especially the Gazebo Simulation models I built during my work on the Sailboat project that were on the Linux partition, and all the notes, assignments and files from my Electrical Engineering program at UBC which  were on the Windows 10 partition - would be a disaster. My work at Sailbot involved complex modeling of the sailboat's dynamics, ocean water and how the boat/hull interacted with changing weather conditions, plus it offered us a way to remotely visualize the boat. Below is a screenshot of Gazebo running on the  Linux system with a boat model.
+
+<Image
+    src="/writing/upgrading-linux/gazebo-screenshot.png"
+    alt=""
+    width={1920}
+    height={1080}
+    className="rounded-md shadow-md"
+/>
+
+I used both an external SSD drive and Google Drive to back up my data. Probably just copying the files to the physical drive would have been enough, but I used cloud storage for extra redundancy.
+
+#### Research 
+
+The final step before beginning the upgrade was to dig into Ubuntu documentation, release notes and upgrade path details to avoid any surprises. Ubuntu being a Linux distro focused on Enterprise provides clear documentation, but I also wanted to look out for common issues encountered by others. I searched through Reddit threads, Stack Exchange and Stack Oveflow questions, and reading the experiences of others helped me prepare for the troubleshooting that I inevitably had to do once I started the upgrade.
+
+## The Upgrade Process
+
+#### Fresh Install vs Direct Upgrade
+
+When upgrading from an older OS, there are two main paths: a fresh install or a direct upgrade.
+
+- **Fresh Install:** This would involve removing Ubuntu 16.04 entirely, keeping only  Windows 10, and setting up a fresh dual-boot system with Ubuntu 22.04. It is a clean approach, ensuring no legacy files or configurations interfere with the new installation. I have done fresh Linux installations many times before - when I used to work on Soma where I would configure Raspberry Pis with a modified version of the Debian Linux distro (making it headless and a few other things). As a result, this path wasn't the most exciting challenge even though it would be reliable.
+
+- **Direct Upgrade:** The more interesting path, especially as I had not done a multi-step upgrade before. Rather than wiping everything and starting over, I decided to upgrade in place. The challenge came from the fact that you can't directly upgrade from 16.04 to 22.04.  you need to incrementally upgrade through each LTS  version  - 16.04 to 18.04, then to 20.04, and finally to 22.04. The incremental path would be more complicated but also a valuable learning experience.
+
+#### Step-by-Step Guide
+
+###### Step 1: Preparing the system
+
+Before updating OS versions, Ubuntu requires us to do all the necessary updates for the current release. To ensure all installed software and packages are current, I first opened the Ubuntu Software App, navigated to the "Updates" tab  and clicked "Install" button to apply all the updates. Just to make sure I got everything, I fired up a terminal and did a manual update with the commands below.
+
+```sh 
+> sudo apt update
+...
+> sudo apt upgrade
+...
+```
+
+Note that  you will not be allowed to go forward with the next command to upgrade to the next LTS version until the commands above run without errors. I had a couple of issues which  popped up when running  `apt update` which I'll go further into in the next section Also just to be sure I'd  advise running the two commands again with `apt-get` instead of `apt`. If you receive a message saying any package has been kept back, manually install it with `apt-get` or remove it before moving to the next section.
+
+###### Step 2: Upgrading to Ubuntu 18.04
+
+We can now upgrade from 16.04 to 18.04 using the `do-release-upgrade` command below and following the terminal prompts. Just to be on the safe side, I advise rebooting the system especially if you had over 200 packages get upgraded like me. This process can take several hours so make sure you're connected to power.
+
+```sh 
+> sudo do-release-upgrade
+```
+
+After the command above is complete, you will get a prompt to restart the system which will now boot into an Ubuntu 18.04 install. I double checked that all my data, apps and previous projects were working so at least I didn't need to do a backup restore.
+
+###### Step 3: Upgrading to Ubuntu 20.04
+
+Next we will do the  upgrade from 18.04 to 20.04 LTS. After first restarting into Ubuntu 18, you should see a dialog telling you Ubuntu 20.04 is available. You can click 'Yes, Upgrade Now' to start the upgrade but I personally prefer doing manually using the same commands - it gives me more details and control.
+
+```sh
+> sudo apt update
+...
+> sudo apt upgrade 
+... 
+> sudo do-release-upgrade
+...
+```
+
+###### Step 4: Upgrading to Ubuntu 22.04
+
+From here on the process is similar to upgrade from 20.04 to 22.04, just the same  three commands. Once the upgrade is complete, we do a final reboot of the system and verify the upgrade using the command below.
+
+```sh 
+> lsb_release -a
+```
+
+This confirmed that I was now running Ubuntu 22.04, and after checking that all my previous projects, files and configurations were intact, the upgrade journey was now complete.
+
+## Issues and Troubleshooting
+
+Since it had been quite a long time since my last update, I ran into a couple of issues while trying to upgrade my system. Specifically, both my Chrome and Robot Operating System (ROS) packages could not update due to GPG errors. These errors were caused by missing public keys for the repositories as shown below: 
+
+```sh 
+> sudo apt-get update
+Hit:1 https://packages.microsoft.com/repos/vscode stable InRelease
+Hit:6 http://ca.archive.ubuntu.com/ubuntu xenial InRelease                     
+...
+Err:2 http://packages.ros.org/ros/ubuntu xenial InRelease                      
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F42ED6FBAB17C654
+W: GPG error: http://dl.google.com/linux/chrome/deb stable InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY E88979FB9B30ACF2
+W: The repository 'http://dl.google.com/linux/chrome/deb stable InRelease' is not signed.
+N: Data from such a repository can't be authenticated and is therefore potentially dangerous to use.
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://packages.ros.org/ros/ubuntu xenial InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F42ED6FBAB17C654
+```
+
+The error logs indicated that I was missing two public keys, and the system provided the key IDs for me to retrieve. To resolve this issue, I needed to fetch the missing keys then rerun the `apt update` command. Here's how I fixed it:
+
+#### Fixing GPG Errors.
+
+GPG stands for GNU Privacy Guard, which is an implementation of public key cryptography. It can be used for standard operations of encryption keys (encrypt / decrypt), and for messages verification. I used the `apt-key` command as shown below to request the missing keys and update the system. 
+
+```sh 
+> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E88979FB9B30ACF2
+Executing: /tmp/tmp.xeYkhXUFy8/gpg.1.sh --keyserver
+keyserver.ubuntu.com
+--recv-keys
+E88979FB9B30ACF2
+gpg: requesting key 9B30ACF2 from hkp server keyserver.ubuntu.com
+gpg: key D38B4796: "Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>" 21 new signatures
+gpg: key D38B4796: "Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>" 4 new subkeys
+gpg: Total number processed: 1
+gpg:            new subkeys: 4
+gpg:         new signatures: 21
+> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
+Executing: /tmp/tmp.Jdmy2cvWfb/gpg.1.sh --keyserver
+keyserver.ubuntu.com
+--recv-keys
+F42ED6FBAB17C654
+gpg: requesting key AB17C654 from hkp server keyserver.ubuntu.com
+gpg: key AB17C654: public key "Open Robotics <info@osrfoundation.org>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+```
+
+After adding the keys, I ran `apt update` again, and the errors were resolved as shown below.
+
+```sh
+> sudo apt update
+Get:2 http://dl.google.com/linux/chrome/deb stable InRelease [1,825 B]         
+Hit:3 http://packages.osrfoundation.org/gazebo/ubuntu-stable xenial InRelease  
+Hit:5 http://ca.archive.ubuntu.com/ubuntu xenial InRelease                     
+Get:4 http://packages.ros.org/ros/ubuntu xenial InRelease [4,692 B]            
+Hit:6 http://ca.archive.ubuntu.com/ubuntu xenial-updates InRelease             
+Hit:1 https://packages.microsoft.com/repos/vscode stable InRelease             
+Hit:7 http://ca.archive.ubuntu.com/ubuntu xenial-backports InRelease    
+Hit:8 http://security.ubuntu.com/ubuntu xenial-security InRelease       
+Get:9 http://packages.ros.org/ros/ubuntu xenial/main amd64 Packages [854 kB]
+Hit:10 https://packagecloud.io/slacktechnologies/slack/debian jessie InRelease
+Get:11 http://packages.ros.org/ros/ubuntu xenial/main i386 Packages [625 kB]
+Fetched 1,485 kB in 1s (1,303 kB/s)                       
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+456 packages can be upgraded. Run 'apt list --upgradable' to see them.
+```
+
+A word of caution when using this method: adding public keys using `apt-key` is telling your system that you trust the key to sign the software  from the repository  you're fetching. It's crucial to ensure that the key really belongs to the software's official distributor. You can verify this by checking the key on the repository's website or documentation.
+
+####  Alternative Fixes to  GPG Errors
+
+If retrieving the keys doesn't work, another option is removing the keys then readding them later. To do this, first list all the package keys.
+
+```sh
+> ls /etc/apt/sources.list.d
+gazebo-stable.list ros-latest.list vscode.list google-chrome.list slack.list
+```
+
+Next you remove the problematic keys, in my case `google-chrome.list` and `ros-latest.list` as shown below.
+
+```sh 
+> sudo rm -i /etc/apt/sources.list.d/google-chrome.list
+[sudo] password for dankibiwott:
+rm: remove regular file '/etc/apt/sources.list.d/google-chrome.list'?
+
+> sudo rm -i /etc/apt/sources.list.d/ros-latest.list
+rm: remove regular file '/etc/apt/sources.list.d/ros-latest.list'?
+```
+
+Alternatively, you can bypass the GPG errors temporarily by using the `--allow-unaunthenticated` flag with the `apt update` command although this or the above solution isn't recommended unless absolutely necessary.
+
+If all these options don't work, you can remove the problematic packages and reinstall them after the upgrade. In my case, this would involve removing ROS and Chrome. For ROS which  consists of hundreds of packages all starting with `ros-...`.  Just run the command below to remove all of them.
+
+```sh
+> sudo apt remove ros-*
+```
+
+For Chrome, there are three packages (Stable, Beta and Unstable) that you can remove with the command below.
+
+```sh 
+> sudo apt remove google-chrome-beta google-chrome-stable google-chrome-unstable
+```
+Now we just have to remove all the packages that were automatically installed with these packages that  are no longer required. To clean up unused dependencies, run the `autoremove` command below.
+
+```sh 
+> sudo apt autoremove
+```
+
+## Conclusion
+
+Going through this process of upgrading a  five-year-old Linux system has been a really rewarding learning experience. I've always enyoyed working with Linux, but this experience deepened my understanding of Debian-based Linux systems like Ubuntu. I did spend quite a bit of time researching the errors I got at each step of this update process which improved my understanding of how Linux handles its package  dependencies.
+
+Now that I'm running Ubuntu 22.04 LTS  on my dual setup, I'm planning to dive deeper into Linux for both personal and project based work. One of my next projects is to set up a home Linux server using Raspberry Pis. My goal is to self-host some of my personal projects using the numerous Raspberry Pis I have lying  around and build my own *mini* datacenter, and then explore services like Cloudflare Tunnels to make them accessible over the public internet. With this, I'll be spending more of my time on Linux and I am excited for some of the projects that I have planned. Hopefully, I'll have some time to write about them when I'm done.

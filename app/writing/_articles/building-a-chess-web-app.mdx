@@ -1,0 +1,961 @@
+---
+title: "Building a Chess Web App"
+publishedAt: "2024-07-04"
+summary: "Building a full-stack drag-and drop Chess web app using React."
+preview: "In this article, we will be building a Chess application using React that will allow the player to drag pieces across the board. We'll be using TailwindCSS for styling. To view what we will be building by the end of this article, visit dankibiwott.com/experiments/0001."
+published: "yes"
+lastModified: "2024-08-05"
+featured: "yes"
+---
+
+In this article, we will be building a Chess application
+using React that will allow the player to drag pieces across the
+board. We'll be using TailwindCSS for styling. To view what we will be
+building by the end of this article, visit{" "}
+<a
+    href="https://dankibiwott.com/experiments/0001"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-link hover:underline hover:underline-offset-4"
+> dankibiwott.com/experiments/0001
+</a>.
+
+The starting code is shown below:
+
+<Tabs defaultValue="App.tsx" key={1}>
+<TabsList>
+    <TabsTrigger value="App.tsx">App.tsx</TabsTrigger>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="App.tsx"
+>
+```tsx
+import Chessboard from "@/components/chessboard";
+ 
+export default function App() {
+  return (
+    <div>
+      <Chessboard />
+    </div>
+  );
+}
+```
+</TabsContent>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx
+export default function Chessboard() {
+  return <>Chessboard</>;
+}
+```
+</TabsContent>
+</Tabs>
+
+We will then create a helper function that renders all the 64
+squares of the chessboard. This function is called by the Chessboard
+component to create all the square components that are then rendered
+on a 500px by 500px grid (320px by 320px on mobile).
+
+<Tabs defaultValue="chessboard.tsx" key={2}>
+<TabsList>
+    <TabsTrigger value="App.tsx">App.tsx</TabsTrigger>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="App.tsx"
+>
+```tsx
+import Chessboard from "@/components/chessboard";
+ 
+export default function App() {
+  return  (
+    <div className="py-20 flex justify-center">
+      <Chessboard />
+    </div>
+  );
+}
+```
+</TabsContent>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+function renderSquares() {
+  const squares = [];
+ 
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      squares.push(
+        <div className="text-xs" key={`${row}${col}`}>
+          {row},{col}
+        </div>
+      );
+    }
+  }
+ 
+  return squares;
+}
+ 
+export default function Chessboard() {
+  const boardSquares = renderSquares();
+  return (
+    <div className="grid h-80 w-80 grid-cols-8 grid-rows-8 sm:h-[500px] sm:w-[500px]">
+      {boardSquares}
+    </div>
+  );
+}
+```
+</TabsContent>
+</Tabs>
+
+After adding this, this is how the app looks like:
+
+<Image
+    src="/writing/drag-and-drop/progress-1.jpg"
+    alt="Chessboard  at start"
+    width={500}
+    height={500}
+    className="rounded-md shadow-md"
+/>
+
+Next we will add altenating dark and light squares to the
+chessboard. We will be using a helper function (<code className="font-mono">cn</code>) that uses Tailwind-merge and
+Clsx to conditionally apply tailwind classes when the square is
+dark.
+
+<Tabs defaultValue="chessboard.tsx" key={3}>
+<TabsList>
+    <TabsTrigger value="App.tsx">App.tsx</TabsTrigger>
+    <TabsTrigger value="utils.tsx"><span className="hidden sm:inline">lib/</span>utils.tsx</TabsTrigger>
+    <TabsTrigger value="chessboard.tsx"><span className="hidden sm:inline">components</span>chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="App.tsx"
+>
+```tsx
+import Chessboard from "@/components/chessboard";
+ 
+export default function App() {
+  return  (
+    <div className="py-20 flex justify-center">
+      <Chessboard />
+    </div>
+  );
+}
+```
+</TabsContent>
+<TabsContent
+    value="utils.tsx"
+>
+```tsx
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+</TabsContent>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx
+import { type ReactNode } from "react";
+ 
+import { cn } from "@/lib/utils";
+ 
+function Square({
+  isDark,
+  children,
+}: {
+  isDark: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center",
+        isDark && "bg-gray-200",
+       )}
+    >
+      {children}
+    </div>
+    );
+ }
+ 
+function renderSquares() {
+  const squares = [];
+ 
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      squares.push(
+        <Square isDark={(row + col) % 2 === 1}>
+          {row},{col}
+        </Square>
+      );
+    }
+  }
+ 
+  return squares;
+}
+ 
+export default function Chessboard() {
+  const boardSquares = renderSquares();
+  return (
+    <div className="grid h-80 w-80 grid-cols-8 grid-rows-8 sm:h-[500px] sm:w-[500px]">
+      {boardSquares}
+    </div>
+  );
+}
+```
+</TabsContent>
+</Tabs>
+
+<Image
+    src="/writing/drag-and-drop/progress-2.jpg"
+    alt="Chessboard"
+    width={500}
+    height={500}
+    className="rounded-md shadow-md"
+/>
+
+We will be maintaining the positional data of the chess pieces in
+the <code className="font-mono">Chessboard</code> component. We pass
+down this data to the <code className="font-mono">renderSquares</code> function which uses
+it to add chess piece icons to the relevant squares. To simplify
+this, we create a lookup table that returns a <code className="font-mono">Piece</code> component that has the
+relevant icon image.
+
+<Tabs defaultValue="chessboard.tsx" key={4}>
+<TabsList>
+    <TabsTrigger value="App.tsx">App.tsx</TabsTrigger>
+    <TabsTrigger value="utils.tsx"><span className="hidden sm:inline">lib/</span>utils.tsx</TabsTrigger>
+    <TabsTrigger value="chessboard.tsx"><span className="hidden sm:inline">components/</span>chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="App.tsx"
+>
+```tsx 
+import Chessboard from "@/components/chessboard";
+ 
+export default function App() {
+  return  (
+    <div className="py-20 flex justify-center">
+      <Chessboard />
+    </div>
+  );
+}
+```
+</TabsContent>
+<TabsContent
+    value="utils.tsx"
+>
+```tsx 
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+</TabsContent>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+import { type ReactElement, type ReactNode } from "react";
+ 
+import { cn } from "@/lib/utils";
+ 
+function Piece({ imageSrc, alt }: { imageSrc: string; alt: string }) {
+  return <img src={imageSrc} alt={alt} className="h-11 w-11" />;
+}
+ 
+type TPieceName = "king" | "pawn";
+ 
+const pieceComponentLookup: {
+  [Key in TPieceName]: () => ReactElement;
+} = {
+  king: () => <Piece imageSrc="/icons/king.png" alt="King" />,
+  pawn: () => <Piece imageSrc="/icons/pawn.png" alt="Pawn" />,
+};
+ 
+type TCoordsArr = [number, number];
+ 
+type TPieceData = {
+  name: TPieceName;
+  coords: TCoordsArr;
+};
+ 
+function areCoordsEqual(c1: TCoordsArr, c2: TCoordsArr) {
+  return c1[0] === c2[0] && c1[1] === c2[1];
+}
+ 
+function Square({
+  isDark,
+  children,
+}: {
+  isDark: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center",
+        isDark && "bg-gray-200",
+       )}
+    >
+      {children}
+    </div>
+    );
+ }
+ 
+function renderSquares(allPiecesData: TPieceData[]) {
+  const squares = [];
+ 
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      const currCoordsArr: TCoordsArr = [row, col];
+ 
+      const pieceInThisCoord = allPiecesData.find((pieceData) =>
+        areCoordsEqual(currCoordsArr, pieceData.coords),
+      );
+ 
+      let ComponentToRender;
+      if (pieceInThisCoord) {
+        ComponentToRender = pieceComponentLookup[pieceInThisCoord.name];
+        squares.push(
+          <Square isDark={(row + col) % 2 === 1} key={`${row}${col}`}>
+            <ComponentToRender />
+          </Square>,
+        );
+      } else {
+        ComponentToRender = () => <>&nbsp;</>;
+        squares.push(
+          <Square isDark={(row + col) % 2 === 1} key={`${row}${col}`}>
+            <ComponentToRender />
+          </Square>,
+        );
+      }
+    }
+  }
+ 
+  return squares;
+}
+ 
+export default function Chessboard() {
+  const allPiecesData: TPieceData[] = [
+    { name: "king", coords: [3, 2] },
+    { name: "pawn", coords: [1, 6] },
+  ];
+ 
+  const boardSquares = renderSquares(allPiecesData);
+ 
+  return (
+    <div className="grid h-80 w-80 grid-cols-8 grid-rows-8 sm:h-[500px] sm:w-[500px]">
+      {boardSquares}
+    </div>
+  );
+}
+```
+</TabsContent>
+</Tabs>
+
+<Image
+    src="/writing/drag-and-drop/progress-3.jpg"
+    alt="Chessboard"
+    width={500}
+    height={500}
+    className="rounded-md shadow-md"
+/>
+
+We will now make our chess board functional by allowing chess pieces
+to be dragged around. We will be using Pragmatic Drag and Drop from
+Atlassian for our drag-and-drop functionality. This library provides
+a <code className="font-mono">Draggable</code> function that we can
+attach to any HTML element in the page that we want make draggable
+(the chess icon images in our case). To make the chess piece icon
+feel like it is being dragged, we will reduce the opacity of the
+origin element to 40%. To get started run the command below to
+install the package then add the following code to what we have
+currently.
+
+<div className="overflow-x-auto">
+```sh
+yarn add @atlaskit/pragmatic-drag-and-drop
+```
+</div>
+
+<Tabs defaultValue="chessboard.tsx" key={5}>
+<TabsList>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+import {
+ useRef,
+ useEffect,
+ useState,
+ type ReactElement,
+ type ReactNode,
+} from "react";
+import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+ 
+import { cn } from "@/lib/utils";
+ 
+function Piece({ imageSrc, alt }: { imageSrc: string; alt: string }) {
+  const pieceRef = useRef<HTMLImageElement | null>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+ 
+  useEffect(() => {
+    const el = pieceRef.current;
+ 
+    if (el === null) return;
+ 
+    return draggable({
+      element: el,
+      onDragStart: () => setIsDragging(true),
+      onDrop: () => setIsDragging(false),
+     });
+  }, []);
+ 
+  return (
+    <img
+      ref={pieceRef}
+      src={imageSrc}
+      alt={alt}
+      className={cn("h-11 w-11", isDragging && "opacity-40")}
+    />
+  );
+}
+ 
+type TPieceName = "king" | "pawn";
+ 
+// ...
+```
+</TabsContent>
+</Tabs>
+
+As shown below, we can now drag the individual chess pieces and the
+squares they were dragged from fades.
+
+<Image
+    src="/writing/drag-and-drop/progress-4.jpg"
+    alt="Chessboard"
+    width={500}
+    height={500}
+    className="rounded-md shadow-md"
+/>
+
+Now that the pieces can be dragged, we will make the squares of the
+chess board act as areas that can be dropped into. We will also
+highlight the squares in a different colour when dragged over to
+provide visual feedback to the user.
+
+<Tabs defaultValue="chessboard.tsx" key={6}>
+<TabsList>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+import {
+  useRef,
+  useEffect,
+  useState,
+  type ReactElement,
+  type ReactNode,
+} from "react";
+import {
+  draggable,
+  dropTargetForElements,
+} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+ 
+import { cn } from "@/lib/utils";
+ 
+function Piece({ imageSrc, alt }: { imageSrc: string; alt: string }) {
+  // ...
+}
+ 
+// ...
+ 
+function Square({
+  isDark,
+  children,
+}: {
+  isDark: boolean;
+  children: ReactNode;
+}) {
+  const squareRef = useRef<HTMLDivElement | null>(null);
+  const [isDraggedOver, setIsDraggedOver] = useState(false);
+ 
+  useEffect(() => {
+    const el = squareRef.current;
+ 
+    if (el === null) return;
+ 
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: () => setIsDraggedOver(true),
+      onDragLeave: () => setIsDraggedOver(false),
+      onDrop: () => setIsDraggedOver(false),
+    });
+  }, []);
+ 
+  return (
+    <div
+      ref={squareRef}
+      className={cn(
+        "flex items-center justify-center",
+        isDraggedOver ? "bg-sky-200" : isDark ? "bg-gray-200" : "bg-popover",
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+ 
+function renderSquares(allPiecesData: TPieceData[]) {
+   // ... 
+}
+ 
+export default function Chessboard() {
+   // ... 
+}
+```
+</TabsContent>
+</Tabs>
+
+As you can see below, a square is highlighted in blue when a chess
+piece is dragged over it.
+
+<Image
+    src="/writing/drag-and-drop/progress-5.jpg"
+    alt="Chessboard"
+    width={500}
+    height={500}
+    className="rounded-md shadow-md"
+/>
+
+We can go further and highlight a square green if it is eligible to
+be dropped onto and red when its not. For this to work, each
+draggable piece will have to carry its original coordinates with it
+when it is being dragged. We modify the <code className="font-mono">Piece</code> component to accept
+coordinates and pass it on to the <code className="font-mono">getInitialData</code> field of the
+arguments object taken by <code className="font-mono">draggable</code>.
+
+<Tabs defaultValue="chessboard.tsx" key={7}>
+<TabsList>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+import {
+  useRef,
+  useEffect,
+  useState,
+  type ReactElement,
+  type ReactNode,
+} from "react";
+import {
+  draggable,
+  dropTargetForElements,
+} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+ 
+import { cn } from "@/lib/utils";
+ 
+type TPieceName = "king" | "pawn";
+type TCoordsArr = [number, number];
+ 
+function Piece({
+  name,
+  coords,
+  imageSrc,
+  alt,
+}: {
+  name: TPieceName;
+  coords: TCoordsArr;
+  imageSrc: string;
+  alt: string;
+}) {
+  const pieceRef = useRef<HTMLImageElement | null>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+ 
+  useEffect(() => {
+    const el = pieceRef.current;
+ 
+    if (el === null) return;
+ 
+    return draggable({
+      element: el,
+      getInitialData: () => ({ name, coords }),
+      onDragStart: () => setIsDragging(true),
+      onDrop: () => setIsDragging(false),
+    });
+  }, [name, coords]);
+ 
+  return (
+    <img
+      ref={pieceRef}
+      src={imageSrc}
+      alt={alt}
+      className={cn("h-11 w-11", isDragging && "opacity-40")}
+    />
+  );
+}
+ 
+const pieceComponentLookup: {
+  [Key in TPieceName]: (coords: TCoordsArr) => ReactElement;
+} = {
+  king: (coords) => (
+    <Piece name="king" coords={coords} imageSrc="/icons/king.png" alt="King" />
+  ),
+  pawn: (coords) => (
+    <Piece name="pawn" coords={coords} imageSrc="/icons/pawn.png" alt="Pawn" />
+  ),
+};
+ 
+type TPieceData = {
+  name: TPieceName;
+  coords: TCoordsArr;
+};
+ 
+function areCoordsEqual(c1: TCoordsArr, c2: TCoordsArr) {
+  // ...
+}
+ 
+function Square({isDark, children}: {isDark: boolean; children: ReactNode;}){
+  // ...
+}
+ 
+function renderSquares(allPiecesData: TPieceData[]) {
+  const squares = [];
+ 
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      const currCoordsArr: TCoordsArr = [row, col];
+ 
+      const pieceInThisCoord = allPiecesData.find((pieceData) =>
+                                    areCoordsEqual(currCoordsArr, pieceData.coords),
+                                ); 
+ 
+      squares.push(
+        <Square isDark={(row + col) % 2 === 1} key={`${row}${col}`}>
+          {pieceInThisCoord ? (
+            pieceComponentLookup[pieceInThisCoord.name](currCoordsArr)
+          ) : (
+            <>&nbsp;</>
+          )}
+        </Square>,
+      );
+    }
+  }
+ 
+  return squares;
+}
+ 
+export default function Chessboard() {
+  // ...
+}
+```
+</TabsContent>
+</Tabs>
+
+
+We can use this starting location and piece name at our drop targets
+(<code className="font-mono">Square</code> components). We also
+introduce an <code className="font-mono">isMoveValid</code> function
+that checks if a chess piece can be dropped onto a particular square
+based on its start and end location, and the piece type.
+
+The TypeScript types for the chess piece's name and coordinates are
+not carried over from the draggable (
+<code className="font-mono">Piece</code> component) to the drop
+target (<code className="font-mono">Square</code> component). To
+make Typescript happy, we'll be using a temporary escape hatch (The
+'as' type assertion to cast them to their expected types). Later on,
+we'll implement a solution for this using type guards which are
+functions or expressions that perform a runtime check to guarantee
+the types in a certain scope.
+
+<Tabs defaultValue="chessboard.tsx" key={8}>
+<TabsList>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx  
+import {
+  useRef,
+  useEffect,
+  useState,
+  type ReactElement,
+  type ReactNode,
+} from "react";
+import {
+  draggable,
+  dropTargetForElements,
+} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+ 
+import { cn } from "@/lib/utils";
+ 
+type TPieceName = "king" | "pawn";
+type TCoordsArr = [number, number];
+ 
+function Piece({ // ... } : { // ... }) {
+  // ...
+}
+ 
+const pieceComponentLookup: {
+  [Key in TPieceName]: (coords: TCoordsArr) => ReactElement;
+} = {
+  // ...
+};
+ 
+type TPieceData = {
+  name: TPieceName;
+  coords: TCoordsArr;
+};
+ 
+function areCoordsEqual(c1: TCoordsArr, c2: TCoordsArr) {
+  // ...
+}
+ 
+function isMoveValid(
+  startCoords: TCoordsArr,
+  destCoords: TCoordsArr,
+  pieceName: TPieceName,
+) {
+  const rowDist = Math.abs(startCoords[0] - destCoords[0]);
+  const colDist = Math.abs(startCoords[1] - destCoords[1]);
+ 
+  switch (pieceName) {
+    case "king":
+      return [0, 1].includes(rowDist) && [0, 1].includes(colDist);
+    case "pawn":
+      return colDist === 0 && startCoords[0] - destCoords[0] === 1;
+    default:
+      return false;
+  }
+}
+ 
+function Square({coords, children}: {isDark: TCoordsArr; children: ReactNode;}){
+  type THoveredState = "idle" | "validMove" | "invalidMove";
+ 
+  const squareRef = useRef<HTMLDivElement | null>(null);
+  const [hoveredState, setHoveredState] = useState<THoveredState>("idle");
+ 
+  const isDark = (coords[0] + coords[1]) % 2 === 1;
+ 
+  useEffect(() => {
+    const el = squareRef.current;
+ 
+    if (el === null) return;
+ 
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: ({ source: draggedPiece }) => {
+        const startCoords = draggedPiece.data.coords as TCoordsArr;
+        const pieceName = draggedPiece.data.name as TPieceName;
+        if (isMoveValid(startCoords, coords, pieceName)) {
+          setHoveredState("validMove");
+        } else {
+          setHoveredState("invalidMove");
+        }
+      },
+      onDragLeave: () => setHoveredState("idle"),
+      onDrop: () => setHoveredState("idle"),
+    });
+  }, []);
+ 
+  return (
+    <div
+      ref={squareRef}
+      className={cn(
+        "flex items-center justify-center",
+        hoveredState === "validMove"
+          ? "bg-emerald-200"
+            : hoveredState === "invalidMove"
+              ? "bg-rose-200"
+                : isDark
+                  ? "bg-gray-200"
+                  : "bg-popover",
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+ 
+function renderSquares(allPiecesData: TPieceData[]) {
+  const squares = [];
+ 
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      const currCoordsArr: TCoordsArr = [row, col];
+ 
+      const pieceInThisCoord = allPiecesData.find((pieceData) =>
+                                    areCoordsEqual(currCoordsArr, pieceData.coords),
+                                ); 
+ 
+      squares.push(
+        <Square coords={currCoordsArr} key={`${row}${col}`}>
+          {pieceInThisCoord ? (
+            pieceComponentLookup[pieceInThisCoord.name](currCoordsArr)
+          ) : (
+            <>&nbsp;</>
+          )}
+        </Square>,
+      );
+    }
+  }
+ 
+  return squares;
+}
+ 
+export default function Chessboard() {
+  // ...
+}
+```
+</TabsContent>
+</Tabs>
+
+We can now move the chess pieces and the square on the chessboard
+will show green if it is a valid move and red when it is not.
+However, one crucial piece is still missing. If you drop a piece, it
+goes back to its original location. We will fix this using the <code className="font-mono">monitorForElements</code> function
+from Pragmatic drag and drop, which will enable us to update the
+locations/coordinates states of all pieces after any drag and drop
+operation. We modify the Square component to extract the <code className="font-mono">coords</code> data that 
+we attached to the Piece component above and then add the <code className="font-mono">monitorForElements</code> function
+to the Chessboard component. We also replace the allPiecesData array
+with a React state variable.
+
+<Tabs defaultValue="chessboard.tsx" key={9}>
+<TabsList>
+    <TabsTrigger value="chessboard.tsx">components/chessboard.tsx</TabsTrigger>
+</TabsList>
+<TabsContent
+    value="chessboard.tsx"
+>
+```tsx 
+// ...
+import {draggable, dropTargetForElements, monitorForElements} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+ 
+// ...
+ 
+function Square({coords, children}: {isDark: TCoordsArr; children: ReactNode;}){
+  type THoveredState = "idle" | "validMove" | "invalidMove";
+ 
+  const squareRef = useRef<HTMLDivElement | null>(null);
+  const [hoveredState, setHoveredState] = useState<THoveredState>("idle");
+ 
+  const isDark = (coords[0] + coords[1]) % 2 === 1;
+ 
+  useEffect(() => {
+    const el = squareRef.current;
+ 
+    if (el === null) return;
+ 
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: ({ source: draggedPiece }) => {
+        const startCoords = draggedPiece.data.coords as TCoordsArr;
+        const pieceName = draggedPiece.data.name as TPieceName;
+        if (isMoveValid(startCoords, coords, pieceName)) {
+          setHoveredState("validMove");
+        } else {
+          setHoveredState("invalidMove");
+        }
+      },
+      onDragLeave: () => setHoveredState("idle"),
+      onDrop: () => setHoveredState("idle"),
+      getData: () => ({ coords }),
+    });
+  }, []);
+ 
+  return (
+    <div
+      ref={squareRef}
+      className={cn(
+        "flex items-center justify-center",
+        hoveredState === "validMove"
+          ? "bg-emerald-200"
+            : hoveredState === "invalidMove"
+              ? "bg-rose-200"
+                : isDark
+                  ? "bg-gray-200"
+                  : "bg-popover",
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+ 
+export default function Chessboard() {
+  const [allPiecesData, setAllPiecesData] = useState<TPieceData[]>([
+    { name: "king", coords: [7, 3] },
+    { name: "pawn", coords: [6, 5] },
+  ]);
+ 
+  useEffect(() => {
+    return monitorForElements({
+      onDrop: ({ source, location }) => {
+        const destination = location.current.dropTargets[0];
+ 
+        if (!destination) return;
+ 
+        const sourceCoords = source.data.coords as TCoordsArr;
+        const destCoords = destination.data.coords as TCoordsArr;
+ 
+        const draggedPieceData = allPiecesData.find((p) =>
+          areCoordsEqual(p.coords, sourceCoords),
+        );
+ 
+        if (!draggedPieceData) return;
+ 
+        const restOfPiecesData = allPiecesData.filter(
+          (p) => p !== draggedPieceData,
+        );
+ 
+        if (isMoveValid(sourceCoords, destCoords, draggedPieceData.name)) {
+          setAllPiecesData([
+            { name: draggedPieceData.name, coords: destCoords },
+            ...restOfPiecesData,
+          ]);
+        }
+      },
+    });
+  }, [allPiecesData]);
+ 
+  const boardSquares = renderSquares(allPiecesData);
+ 
+  return (
+    <div className="grid h-80 w-80 grid-cols-8 grid-rows-8 sm:h-[500px] sm:w-[500px]">
+      {boardSquares}
+    </div>
+  );
+}
+```
+</TabsContent>
+</Tabs>
+
+We now have working Chessboard, albeit a pretty limited one as it only has two pieces.
+
+Play with the app we built at 
+<a
+    href="https://dankibiwott.com/experiments/0001"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-link hover:underline hover:underline-offset-4"
+>dankibiwott.com/experiments/0001
+</a>.
