@@ -7,36 +7,97 @@ export const allProjectItems = [
       "This is my personal design system/philosophy based on Atomic Design by Brad Frost. This includes my theme and colour palette (used on this website), component primitives built on top of RadixUI and React Aria, and component composites constructed by integrating multiple primitives.",
     ],
     techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
-    githubLink: "https://github.com/dankibiwott/design-system",
+    githubLink: "https://github.com/DAN-BIWOTT/portfolio2021/tree/master",
     liveLinkArr: [
-      {
-        linkDesc: "current version",
-        link: "https://design.dankibiwott.com/",
-      },
-      {
-        linkDesc: "initial version",
-        link: "#",
-      },
+     
     ],
   },
+
+  {
+    title: "Imaging Relative to Machine Learning",
+    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImage.png?raw=true",
+    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImageMobile.png?raw=true",
+    descriptionSectionsArr: [
+      "This is a quick website in which I'm documenting my evaluations of classical machine learning, feature extraction, and deep learning methods for binary image classification (Raccoon vs Rifle) using a curated OpenImages dataset.",
+      "This is a curiosity project in which I try to answer the question, 'Could machines have the potential for a more intimate connection with reality than beings of flesh and blood?' ",
+      "I'm exploring how computer vision allows machines to gain a better understanding of reality because of all the spectrums it can perceive. Whether that leads to 'deeper' connection to reality than animals is a whole other can of worms."
+    ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
+    liveLinkArr: [
+      {
+        linkDesc: "In-depth",
+        link: "https://dan-biwott.github.io/pages/ML-imaging.html"
+      }
+    ],
+  },
+
+   {
+    title: "CKC Fifa Tournament",
+    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc.png?raw=true",
+    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc%20mobile.png?raw=true",
+    descriptionSectionsArr: [
+      "This is a quick website intended to spice things up for the kids over the christmas period.",
+      "(This Demo project uses anonymised participant data. Names shown are fictional or modified for demonstration purposes. No personal or identifying information of children is shared.)"
+    ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
+    liveLinkArr: [
+      {
+        linkDesc: "Demo Version",
+        link: "https://ckc-fifa-2026-next-migration-zqyc.vercel.app/"
+      }
+    ],
+  },
+
    {
     title: "Arasaka Neural Bastion",
     ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
-    iphonePhotoLink: "#",
+    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/arasaka.png?raw=true",
     descriptionSectionsArr: [
       "An ongoing Research Project focused on developing and refining advanced trading strategies using Machine Learning.",
       "The trading strategies are experimental and only serve to answer 'why not?' questions I have."
        ],
-    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
-    githubLink: "https://github.com/dankibiwott/design-system",
+    techStackArr: ["Laravel", "Php", "Python", "ONNX","MySql", "Heroku", "AWS EC2", "MQL5",],
+    githubLink: "https://github.com/DAN-BIWOTT/Arasaka-TradingSystems",
     liveLinkArr: [
       {
-        linkDesc: "current version",
-        link: "https://design.dankibiwott.com/",
+        linkDesc: "Frontend demo version",
+        link: "https://arasaka-neural-bastion.onrender.com/",
       },
+    ],
+  },
+
+   {
+    title: "University of Nurses",
+    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/97628efc30789b76ae91c6d571e983a11fc450fd/assets/img/UniversityOfNurses.png",
+    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/UON.png?raw=true",
+    descriptionSectionsArr: [
+      "A client's Start-up Content Management system demo. Designed and built to accommodate nursing assignments and academic paper purchase.",
+       ],
+    techStackArr: ["React", "GraphQl"," Firebase"," Hasura"," Netlify"," Postgres"," Heroku"," Html"," Css"," Js"],
+    githubLink: "https://github.com/DAN-BIWOTT/UniversityOfNursing",
+    liveLinkArr: [
       {
-        linkDesc: "initial version",
-        link: "#",
+        linkDesc: "Demo version",
+        link: "https://university-of-nursing-4i0x3kopc-dan-biwott.vercel.app/",
+      },
+    ],
+  },
+
+    {
+    title: "Unreal Destinations",
+    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/f55f915136b26309e3fe212e4fa0e0d9aa04fa68/src/Assets/unreal.png?raw=true",
+    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/unreal%20mobile.png?raw=true",
+    descriptionSectionsArr: [
+      "A weekend's worth of design experiments with a test project.",
+       ],
+    techStackArr: ["React", "GraphQl","Html", "Css", "Scss", "Js",],
+    githubLink: "https://github.com/DAN-BIWOTT/gastby-travel",
+    liveLinkArr: [
+      {
+        linkDesc: "Demo",
+        link: "https://gastby-travel-xi.vercel.app/",
       },
     ],
   },
