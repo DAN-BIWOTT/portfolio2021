@@ -4,9 +4,29 @@ export const allProjectItems = [
     ipadPhotoLink: "/mockups/ipad/component_library_ipad.png",
     iphonePhotoLink: "/mockups/iphone/component_library_iphone.png",
     descriptionSectionsArr: [
-      "This is my personal design system based on Atomic Design by Brad Frost. This includes my theme and colour palette (used on this website), component primitives built on top of RadixUI and React Aria, and component composites constructed by integrating multiple primitives.",
-      "I have created a series of websites for hypothetical businesses to showcase the adaptability and versatility of this design system. An example is LearnCo, a conceptual project inspired by online learning platforms like Coursera.",
+      "This is my personal design system/philosophy based on Atomic Design by Brad Frost. This includes my theme and colour palette (used on this website), component primitives built on top of RadixUI and React Aria, and component composites constructed by integrating multiple primitives.",
     ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/dankibiwott/design-system",
+    liveLinkArr: [
+      {
+        linkDesc: "current version",
+        link: "https://design.dankibiwott.com/",
+      },
+      {
+        linkDesc: "initial version",
+        link: "#",
+      },
+    ],
+  },
+   {
+    title: "Arasaka Neural Bastion",
+    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
+    iphonePhotoLink: "#",
+    descriptionSectionsArr: [
+      "An ongoing Research Project focused on developing and refining advanced trading strategies using Machine Learning.",
+      "The trading strategies are experimental and only serve to answer 'why not?' questions I have."
+       ],
     techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
     githubLink: "https://github.com/dankibiwott/design-system",
     liveLinkArr: [
@@ -56,7 +76,7 @@ export const featuredProjects = [
   {
     name: "Arasaka Neural Bastion",
     description:
-      "This is a Pipeline focused on developing trading strategies using an ensemble model combining LinearSVR and SFN. The model leverages market data features like price, volume, and moving averages to predict trends, optimize trading, and adapt to dynamic market conditions through machine learning and Automation Scripts.",
+      "This is a Pipeline focused on developing experimental trading strategies using an ensemble model combining LinearSVR and SFN. The model leverages market data features like price, volume, and moving averages to predict trends, optimize trading, and adapt to dynamic market conditions through machine learning and Automation Scripts.",
     tags:["ML-Finance Pipeline"],
     websiteLink: "#",
     githubLink: "https://github.com/DAN-BIWOTT/Arasaka-Neural-Bastion",
