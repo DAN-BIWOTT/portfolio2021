@@ -37,7 +37,7 @@ export function useKeyPress() {
       } else if (event.code === "KeyG") {
         window.open("https://github.com/dankibiwott", "_blank");
       } else if (event.code === "KeyE") {
-        window.open("mailto:dankibiwott@proton.me", "_blank");
+        window.open("mailto:dankibiwottcb4@gmail.com", "_blank");
       } else if (event.code === "KeyL") {
         window.open("https://www.linkedin.com/in/dankibiwott/", "_blank");
       } else if (event.code === "KeyT") {
