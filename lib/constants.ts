@@ -16,7 +16,7 @@ export const allProjectItems = [
       },
       {
         linkDesc: "initial version",
-        link: "https://matt-components.vercel.app/",
+        link: "#",
       },
     ],
   },
