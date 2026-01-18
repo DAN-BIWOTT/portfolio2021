@@ -381,11 +381,6 @@ export const keysUsedInNavigation = [
 ];
 
 export const miscLinks = [
-  // {
-  //   desc: "Undergraduate thesis",
-  //   descUrl: "(dankibiwott.com/undergrad-thesis)",
-  //   url: "https://dankibiwott.com/undergrad-thesis",
-  // },
   {
     desc: "",
     descUrl: "",

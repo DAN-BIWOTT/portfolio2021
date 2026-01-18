@@ -1,11 +1,31 @@
+// app/shooting/page.tsx (or wherever this page lives)
+
+import fs from "fs";
+import path from "path";
 import { MasonryPhotos } from "@/components/masonry-photos";
-import { galleryPagePhotos } from "@/lib/constants";
 
 export const metadata = {
   title: "Dan Kibiwott | Gallery",
 };
 
+function filenameToAlt(filename: string) {
+  return filename
+    .replace(/\.[^/.]+$/, "") // remove extension
+    .replace(/[-_]+/g, " ")   // - and _ to spaces
+    .trim();
+}
+
 export default function ShootingPage() {
+  const dir = path.join(process.cwd(), "public/shooting");
+
+  const items = fs
+    .readdirSync(dir)
+    .filter((file) => /\.(jpg|jpeg|png|webp|gif)$/i.test(file))
+    .map((file) => ({
+      src: `/shooting/${file}`,
+      alt: filenameToAlt(file),
+    }));
+
   return (
     <div>
       <h1 className="mb-4 mt-3 text-xl font-semibold sm:text-2xl lg:hidden">
@@ -19,20 +39,7 @@ export default function ShootingPage() {
         these photos were taken with my iPhone.
       </p>
 
-      <MasonryPhotos />
-
-      {/* <div className="masonry pt-4">
-          {galleryPagePhotos.map((photo) => (
-            <div className="masonry-item" key={photo.imageName}>
-              <img
-                src={`/shooting/${photo.imageName}`}
-                alt={photo.imageName}
-                loading="lazy"
-                className="rounded-md"
-              />
-            </div>
-          ))}
-        </div> */}
+      <MasonryPhotos items={items} />
     </div>
   );
 }

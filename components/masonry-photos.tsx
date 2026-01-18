@@ -2,13 +2,16 @@
 
 import { Masonry } from "react-plock";
 
-import { galleryPagePhotoUrls } from "@/lib/constants";
+type ImageItem = {
+  src: string;
+  alt: string;
+};
 
-export const MasonryPhotos = () => {
+export const MasonryPhotos = ({ items }: { items: ImageItem[] }) => {
   return (
     <div className="mx-auto w-fit pt-4">
       <Masonry
-        items={galleryPagePhotoUrls}
+        items={items}
         config={{
           columns: [1, 2, 3],
           gap: [24, 12, 6],
@@ -17,9 +20,9 @@ export const MasonryPhotos = () => {
         render={(item, idx) => (
           <img
             key={idx}
-            src={item}
+            src={item.src}
+            alt={item.alt}
             loading="lazy"
-            alt={item}
             className="hover:brightness-110"
             style={{
               width: "100%",
