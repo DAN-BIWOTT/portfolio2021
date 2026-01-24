@@ -15,7 +15,7 @@ const nextConfig = {
       },
       {
         source: "/github",
-        destination: "https://github.com/dankibiwott",
+        destination: "https://github.com/DAN-BIWOTT",
         permanent: true,
       },
       {

@@ -35,7 +35,7 @@ export function useKeyPress() {
       } else if (event.code === "Digit6") {
         router.push("/more-about-me");
       } else if (event.code === "KeyG") {
-        window.open("https://github.com/dankibiwott", "_blank");
+        window.open("https://github.com/DAN-BIWOTT", "_blank");
       } else if (event.code === "KeyE") {
         window.open("mailto:dankibiwottcb4@gmail.com", "_blank");
       } else if (event.code === "KeyL") {

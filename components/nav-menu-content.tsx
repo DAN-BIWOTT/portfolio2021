@@ -53,7 +53,7 @@ export const NavMenuContent = () => {
       {/* Bottom sidebar  */}
       <div className="flex min-w-60 flex-col gap-3 px-4 pb-6 pt-8">
         <a
-          href="https://github.com/dankibiwott"
+          href="https://github.com/DAN-BIWOTT"
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={-1}

@@ -248,10 +248,7 @@ export const galleryPagePhotos = [
     imageName: "kigali.JPG",
     size: 293,
   },
-  // {
-  //   imageName: "kits-beach.jpg",
-  //   size: 291,
-  // },
+
   {
     imageName: "east-van.jpg",
     size: 135,
