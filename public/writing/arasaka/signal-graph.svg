@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Model signal graph</title>
+  <desc id="desc">A stylized graph showing price movement, feature smoothing, model confidence, and decision threshold.</desc>
+  <rect width="1280" height="720" fill="#071210"/>
+  <rect x="72" y="72" width="1136" height="576" rx="18" fill="#0c1d1a" stroke="#245e55"/>
+  <text x="112" y="126" fill="#e7fffb" font-family="Arial, sans-serif" font-size="32" font-weight="700">Signal Research View</text>
+  <text x="112" y="160" fill="#95c8be" font-family="Arial, sans-serif" font-size="17">Price behavior, derived features, and model confidence are compared before any decision is allowed through.</text>
+
+  <g stroke="#214740" stroke-width="1">
+    <path d="M130 220 H1140"/>
+    <path d="M130 300 H1140"/>
+    <path d="M130 380 H1140"/>
+    <path d="M130 460 H1140"/>
+    <path d="M130 540 H1140"/>
+    <path d="M220 200 V570"/>
+    <path d="M420 200 V570"/>
+    <path d="M620 200 V570"/>
+    <path d="M820 200 V570"/>
+    <path d="M1020 200 V570"/>
+  </g>
+
+  <path d="M130 450 C200 410, 250 490, 320 420 C390 350, 450 365, 520 330 C590 295, 650 360, 720 310 C790 260, 860 280, 930 250 C1000 220, 1060 255, 1140 205" fill="none" stroke="#38d6bd" stroke-width="5" stroke-linecap="round"/>
+  <path d="M130 430 C260 405, 360 390, 520 345 C680 302, 820 278, 1140 230" fill="none" stroke="#f5c451" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 10"/>
+  <path d="M130 505 C250 520, 360 490, 470 455 C580 420, 650 450, 760 400 C870 350, 980 345, 1140 315" fill="none" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+  <path d="M130 360 H1140" fill="none" stroke="#f87171" stroke-width="3" stroke-dasharray="8 12"/>
+
+  <g font-family="Arial, sans-serif" font-size="16">
+    <rect x="884" y="486" width="218" height="92" rx="12" fill="#102b26" stroke="#2f7b6f"/>
+    <circle cx="912" cy="516" r="7" fill="#38d6bd"/>
+    <text x="930" y="522" fill="#dffcf7">Price path</text>
+    <circle cx="912" cy="544" r="7" fill="#f5c451"/>
+    <text x="930" y="550" fill="#dffcf7">Feature smoothing</text>
+    <circle cx="912" cy="572" r="7" fill="#a78bfa"/>
+    <text x="930" y="578" fill="#dffcf7">Model confidence</text>
+    <text x="142" y="354" fill="#ffb4b4">decision threshold</text>
+  </g>
+</svg>

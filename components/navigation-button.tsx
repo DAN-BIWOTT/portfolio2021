@@ -1,58 +1,39 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import {
+  CameraIcon,
+  HammerIcon,
+  HomeIcon,
+  NewspaperIcon,
+  PencilLineIcon,
   SparklesIcon,
   Wand2Icon,
-  HammerIcon,
-  NewspaperIcon,
-  CameraIcon,
-  PencilLineIcon,
   type LucideIcon,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import type { NavigationItem } from "@/lib/navigation";
 
-export const NavigationButton = ({
-  label,
-  keyboardShortcut,
-}: {
-  label: string;
-  keyboardShortcut: number;
-}) => {
+const navigationIcons: Record<string, LucideIcon> = {
+  Home: HomeIcon,
+  Writing: PencilLineIcon,
+  Reading: NewspaperIcon,
+  Shooting: CameraIcon,
+  "All projects": HammerIcon,
+  "More about me": Wand2Icon,
+};
+
+function isNavigationItemActive(item: NavigationItem, pathname: string) {
+  return item.href === "/writing"
+    ? pathname.startsWith("/writing")
+    : pathname === item.href;
+}
+
+export const NavigationButton = ({ item }: { item: NavigationItem }) => {
   const pathname = usePathname();
-
-  let Icon: LucideIcon;
-  let isActive = false;
-
-  switch (label) {
-    case "Home":
-      Icon = SparklesIcon;
-      isActive = pathname === "/";
-      break;
-    case "Writing":
-      Icon = PencilLineIcon;
-      isActive = pathname.startsWith("/writing") || pathname.startsWith("/drafts");
-      break;
-    case "Reading":
-      Icon = NewspaperIcon;
-      isActive = pathname === "/reading";
-      break;
-    case "Shooting":
-      Icon = CameraIcon;
-      isActive = pathname === "/shooting";
-      break;
-    case "All projects":
-      Icon = HammerIcon;
-      isActive = pathname === "/all-projects";
-      break;
-    case "More about me":
-      Icon = Wand2Icon;
-      isActive = pathname === "/more-about-me";
-      break;
-    default:
-      Icon = SparklesIcon;
-  }
+  const Icon = navigationIcons[item.label] ?? SparklesIcon;
+  const isActive = isNavigationItemActive(item, pathname);
 
   return (
     <Button
@@ -62,9 +43,9 @@ export const NavigationButton = ({
       tabIndex={-1}
     >
       <Icon className="mr-2 h-4 w-4" />
-      <span>{label}</span>
+      <span>{item.label}</span>
       <span className="ml-auto rounded-sm border bg-secondary px-1.5 text-muted-foreground">
-        {keyboardShortcut}
+        {item.keyboardShortcut}
       </span>
     </Button>
   );

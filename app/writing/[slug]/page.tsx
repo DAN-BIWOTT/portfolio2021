@@ -11,9 +11,11 @@ import "@/app/github-code.css";
 
 export async function generateStaticParams() {
   const articles = getBlogArticles();
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
+  return articles
+    .filter((article) => article.blogMetadata.published === "yes")
+    .map((article) => ({
+      slug: article.slug,
+    }));
 }
 
 export function generateMetadata({ params }: any) {
@@ -38,9 +40,16 @@ export default function ArticlePage({ params }: any) {
     notFound();
   }
 
+  if (
+    article.blogMetadata.published !== "yes" &&
+    process.env.NODE_ENV === "production"
+  ) {
+    notFound();
+  }
+
   return (
     <>
-      <div className="p-4 -mx-5 pb-8">
+      <div className="-mx-5 p-4 pb-8">
         <div className="prose mb-2 dark:prose-invert">
           <h1>{article.blogMetadata.title}</h1>
         </div>

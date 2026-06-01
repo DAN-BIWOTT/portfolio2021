@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Evaluation loop</title>
+  <desc id="desc">A loop diagram for backtesting, forward testing, deployment, monitoring, and revision.</desc>
+  <rect width="1280" height="720" fill="#06110f"/>
+  <text x="96" y="104" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">The Research Loop</text>
+  <text x="96" y="140" fill="#9fd9cf" font-family="Arial, sans-serif" font-size="18">The project is valuable when it rejects weak assumptions quickly.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="116" y="268" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="152" y="314" fill="#e5fffa" font-size="20" font-weight="700">Hypothesis</text>
+    <text x="152" y="344" fill="#9fd9cf" font-size="15">What should move?</text>
+
+    <rect x="396" y="172" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="432" y="218" fill="#e5fffa" font-size="20" font-weight="700">Backtest</text>
+    <text x="432" y="248" fill="#9fd9cf" font-size="15">Historical behavior</text>
+
+    <rect x="696" y="172" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="732" y="218" fill="#e5fffa" font-size="20" font-weight="700">Forward Test</text>
+    <text x="732" y="248" fill="#9fd9cf" font-size="15">Live-like checks</text>
+
+    <rect x="974" y="268" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="1010" y="314" fill="#e5fffa" font-size="20" font-weight="700">Deploy</text>
+    <text x="1010" y="344" fill="#9fd9cf" font-size="15">EC2 runtime</text>
+
+    <rect x="696" y="458" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="732" y="504" fill="#e5fffa" font-size="20" font-weight="700">Monitor</text>
+    <text x="732" y="534" fill="#9fd9cf" font-size="15">Logs and drift</text>
+
+    <rect x="396" y="458" width="190" height="112" rx="18" fill="#102b26" stroke="#37b39d" stroke-width="2"/>
+    <text x="432" y="504" fill="#e5fffa" font-size="20" font-weight="700">Revise</text>
+    <text x="432" y="534" fill="#9fd9cf" font-size="15">Keep or discard</text>
+  </g>
+
+  <g stroke="#42d6bd" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M306 300 C350 236, 356 226, 396 226"/>
+    <path d="M586 226 H696"/>
+    <path d="M886 226 C930 236, 948 258, 974 300"/>
+    <path d="M1068 380 C1048 454, 958 514, 886 514"/>
+    <path d="M696 514 H586"/>
+    <path d="M396 514 C322 498, 246 430, 212 380"/>
+  </g>
+  <g fill="#42d6bd">
+    <path d="M392 226 l-12 -8 v16z"/>
+    <path d="M692 226 l-12 -8 v16z"/>
+    <path d="M970 296 l-14 -3 9 13z"/>
+    <path d="M890 514 l12 -8 v16z"/>
+    <path d="M590 514 l12 -8 v16z"/>
+    <path d="M214 384 l-1 14 -12 -8z"/>
+  </g>
+</svg>

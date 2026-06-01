@@ -42,24 +42,15 @@ export const FeaturedProjectsTable = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                   className="
-            inline-flex items-center
-            rounded-full
-            bg-muted/70
-            px-2 py-0.5
-            text-xs font-medium
-            text-muted-foreground
-            ring-1 ring-border/70
-            transition
-            hover:bg-accent hover:text-foreground
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
-          ">
-          <span className="mr-1 text-primary/90">#{tag}</span>
+                      className="inline-flex items-center rounded-full bg-muted/70 px-2 py-0.5 text-xs font-medium text-muted-foreground ring-1 ring-border/70 transition hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <span className="mr-1 text-primary/90">#{tag}</span>
                     </span>
                   ))}
-                </div>)}
+                </div>
+              )}
             </TableCell>
-            
+
             <TableCell className="pl-2 text-left align-top">
               {project.websiteLink && (
                 <>
@@ -72,6 +63,17 @@ export const FeaturedProjectsTable = () => {
                     Website
                   </a>
                   <span>, </span>
+                </>
+              )}
+              {project.articleLink && (
+                <>
+                  <a
+                    href={project.articleLink}
+                    className="text-link hover:underline hover:underline-offset-4"
+                  >
+                    Article
+                  </a>
+                  {project.githubLink && <span>, </span>}
                 </>
               )}
               {project.githubLink && (

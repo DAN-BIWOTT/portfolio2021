@@ -1,0 +1,168 @@
+---
+title: "Building Arasaka Neural Bastion"
+publishedAt: "2026-06-01T10:00:00"
+lastModified: "2026-06-01T10:00:00"
+summary: "Building a forex machine learning research pipeline with automation scripts, MQL5 integration, and AWS EC2 deployment."
+preview: "Arasaka Neural Bastion is my experimental forex machine learning research pipeline. This article walks through the architecture, model loop, deployment thinking, and why the most useful part of the project is not predicting the market, but building a system that can reject weak assumptions quickly."
+published: "yes"
+featured: "yes"
+---
+
+Arasaka Neural Bastion is an ongoing forex and financial machine learning research project. The idea is simple enough to say out loud: take market data, engineer useful features, evaluate experimental models, and connect the research loop to automation scripts that can run in a more realistic environment.
+
+The reality is less tidy, which is exactly why the project is interesting.
+
+Financial markets are noisy, adversarial, and full of patterns that look convincing until they are tested outside the small window where they were discovered. So I do not think of this project as a magic prediction machine. I think of it as a research pipeline for asking better questions:
+
+- Can a model learn anything useful from the available price, volume, and indicator data?
+- Can a signal survive outside the backtest where it first looked promising?
+- Can the automation layer be made boring, observable, and repeatable?
+- Can I separate a real edge from a beautiful chart that is lying to me?
+
+This article is a walkthrough of how I think about the project, how the system is shaped, and what I have learned from building it.
+
+> This is a technical research project, not financial advice. The strategies are experimental and only serve to answer engineering and machine learning questions I have.
+
+## The Project
+
+At a high level, Arasaka Neural Bastion combines four pieces:
+
+- a market data and feature engineering layer
+- a model research layer
+- automation scripts for running signals
+- deployment and runtime work around AWS EC2 and MQL5
+
+The frontend demo gave the project a visible interface, but the more important work sits behind that: the pipeline that turns raw market data into features, features into model outputs, and model outputs into decisions that still have to pass risk and sanity checks.
+
+<Image
+  src="/writing/arasaka/arasaka-home.png"
+  alt="Arasaka Neural Bastion frontend screenshot"
+  width={1920}
+  height={1080}
+  className="rounded-md shadow-md"
+/>
+
+The screenshot above is the project surface. The real lesson has been in the infrastructure beneath it.
+
+## System Shape
+
+The system is easiest to understand as a pipeline. Data comes in from the market side. Feature engineering converts it into a cleaner representation of recent behavior. Models produce scores or directional expectations. Automation scripts then decide whether that output is useful enough to act on or whether it should be ignored.
+
+<img
+  src="/writing/arasaka/architecture.svg"
+  alt="Architecture diagram for the Arasaka Neural Bastion research pipeline"
+  className="rounded-md shadow-md"
+/>
+
+I like this shape because it keeps the research work separate from the execution work. The model should not know too much about the deployment environment. The automation layer should not quietly mutate the research logic. The runtime should be observable enough that failures are visible instead of mysterious.
+
+That separation matters because the most dangerous version of a trading project is one where everything is tangled together: data cleaning, model inference, execution, logging, and manual overrides all living in the same untestable script. It might work once, but it becomes hard to know why.
+
+## Feature Engineering
+
+Most of the project starts with ordinary market features:
+
+- price movement over recent windows
+- moving averages
+- short-term and longer-term trend structure
+- volatility-like changes
+- volume behavior where available
+- derived features used to compare recent price action against previous context
+
+The goal is not to flood a model with every indicator possible. The goal is to build a feature set that can be inspected and explained after the model returns an output.
+
+That is one of the biggest lessons I keep relearning with machine learning projects: if I cannot explain what a feature is meant to reveal, I probably should not trust it just because it improves a metric in one test run.
+
+## Model Research
+
+The project has experimented with model-driven strategy development, including an ensemble direction that combines more traditional regression-style models with other signal-producing components. In the current portfolio summary, I describe this as work around models such as `LinearSVR` and an `SFN` ensemble.
+
+The interesting part is not the model name. The interesting part is the testing loop around it.
+
+<img
+  src="/writing/arasaka/signal-graph.svg"
+  alt="Stylized signal graph showing price path, smoothing, model confidence, and decision threshold"
+  className="rounded-md shadow-md"
+/>
+
+A model output is only one part of the decision. I want to know:
+
+- what the model saw
+- what features had the most influence
+- whether the signal was strong enough to clear a threshold
+- whether the signal was happening during a regime where the model historically behaved badly
+- whether the output survived forward-style testing
+
+That last point is brutal but useful. Backtests are good at making weak ideas look smarter than they are. Forward testing is where the project becomes more honest.
+
+## Deployment on EC2
+
+Moving parts of the project onto AWS EC2 changed how I thought about it. On a laptop, a research script can be casual. On a server, it needs to become a system.
+
+That means thinking about:
+
+- repeatable environment setup
+- scheduled jobs
+- process restarts
+- logs
+- secrets
+- remote access
+- what happens when an assumption fails at 2 AM
+
+EC2 is not glamorous here. That is the point. It is a practical host for learning how to keep the research pipeline running away from my local machine.
+
+The MQL5 side adds another constraint. It forces the project to bridge research code and trading-terminal automation. That bridge is useful because it makes the whole project less theoretical. A signal is not just a number in a notebook anymore; it has to pass through a real integration surface.
+
+## The Research Loop
+
+The project is strongest when it behaves like a loop instead of a one-way pipeline.
+
+<img
+  src="/writing/arasaka/evaluation-loop.svg"
+  alt="Evaluation loop diagram showing hypothesis, backtest, forward test, deploy, monitor, and revise"
+  className="rounded-md shadow-md"
+/>
+
+The loop looks like this:
+
+1. Start with a hypothesis about market behavior.
+2. Build features that represent that hypothesis.
+3. Test the model against historical data.
+4. Forward test the signal in a more realistic environment.
+5. Deploy only the parts that are stable enough to observe.
+6. Monitor failures, drift, and bad assumptions.
+7. Revise or discard the idea.
+
+The discard step is important. A project like this can easily become a museum of half-working strategies. I would rather have a system that kills bad ideas quickly than one that keeps every experiment alive because I once liked the chart.
+
+## What I Learned
+
+The biggest lesson is that the machine learning part is only one layer of the problem.
+
+The surrounding engineering matters just as much:
+
+- data quality matters before model quality
+- feature definitions need to be reproducible
+- backtests need suspicion, not worship
+- deployment exposes assumptions that local experiments hide
+- logs are part of the product, even if the only user is me
+- automation should be boring before it is powerful
+
+I also learned that financial ML is a good domain for humility. It gives immediate feedback when an idea is overfit, under-specified, or too dependent on a lucky window of data.
+
+## Where It Goes Next
+
+The next version of Arasaka Neural Bastion should focus less on adding more models and more on improving the research discipline around the models:
+
+- cleaner experiment tracking
+- better comparison between model versions
+- stricter forward-test reporting
+- clearer monitoring dashboards
+- stronger separation between research, inference, and execution
+- better documentation of failed assumptions
+
+That last one might sound negative, but I think it is one of the most valuable outputs of the project. A failed model with a clear explanation is more useful than a lucky model I cannot explain.
+
+Arasaka Neural Bastion started as a "why not?" project. It still is. But the more I build it, the more the question changes from "Can machine learning predict forex?" to something more useful:
+
+Can I build a system disciplined enough to know when it does not know?

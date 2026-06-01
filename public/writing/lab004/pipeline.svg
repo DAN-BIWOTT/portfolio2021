@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 004 pipeline</title>
+  <desc id="desc">A module pipeline for Lab 004 from MT5 broker connection through data, features, regimes, signals, strategy, backtests, risk, paper execution, and live monitoring.</desc>
+  <rect width="1280" height="720" fill="#07110f"/>
+  <rect x="56" y="54" width="1168" height="612" rx="20" fill="#0d1c19" stroke="#2c6f64" stroke-width="2"/>
+  <text x="92" y="112" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Lab 004 - Proprietary Capital Systems</text>
+  <text x="92" y="148" fill="#99cfc5" font-family="Arial, sans-serif" font-size="18">A modular forex research, risk, paper execution, and live trading pipeline.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="94" y="218" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="120" y="258" fill="#e5fffa" font-size="18" font-weight="700">m0 Broker</text>
+    <text x="120" y="286" fill="#9fd9cf" font-size="14">MT5 bridge</text>
+
+    <rect x="310" y="218" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="336" y="258" fill="#e5fffa" font-size="18" font-weight="700">m1-m3</text>
+    <text x="336" y="286" fill="#9fd9cf" font-size="14">Bars, clean, features</text>
+
+    <rect x="526" y="218" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="552" y="258" fill="#e5fffa" font-size="18" font-weight="700">m4-m5</text>
+    <text x="552" y="286" fill="#9fd9cf" font-size="14">Regimes, signals</text>
+
+    <rect x="742" y="218" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="768" y="258" fill="#e5fffa" font-size="18" font-weight="700">m6-m7</text>
+    <text x="768" y="286" fill="#9fd9cf" font-size="14">Positions, backtests</text>
+
+    <rect x="958" y="218" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="984" y="258" fill="#e5fffa" font-size="18" font-weight="700">m8 Risk</text>
+    <text x="984" y="286" fill="#9fd9cf" font-size="14">Portfolio checks</text>
+
+    <rect x="526" y="430" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="552" y="470" fill="#e5fffa" font-size="18" font-weight="700">m9 Paper</text>
+    <text x="552" y="498" fill="#9fd9cf" font-size="14">Hourly execution</text>
+
+    <rect x="742" y="430" width="160" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="768" y="470" fill="#e5fffa" font-size="18" font-weight="700">m10 Live</text>
+    <text x="768" y="498" fill="#9fd9cf" font-size="14">GBP 1,000 allocation</text>
+
+    <rect x="94" y="430" width="376" height="96" rx="14" fill="#102b26" stroke="#39cdb4"/>
+    <text x="120" y="470" fill="#e5fffa" font-size="18" font-weight="700">Scheduled Operations</text>
+    <text x="120" y="498" fill="#9fd9cf" font-size="14">Hourly paper/live checks and daily train/evaluate jobs</text>
+  </g>
+
+  <g stroke="#42d6bd" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M254 266 H310"/>
+    <path d="M470 266 H526"/>
+    <path d="M686 266 H742"/>
+    <path d="M902 266 H958"/>
+    <path d="M1038 314 C1004 410 922 478 902 478"/>
+    <path d="M742 478 H686"/>
+    <path d="M526 478 H470"/>
+  </g>
+  <g fill="#42d6bd">
+    <path d="M306 266 l-12 -8 v16z"/>
+    <path d="M522 266 l-12 -8 v16z"/>
+    <path d="M738 266 l-12 -8 v16z"/>
+    <path d="M954 266 l-12 -8 v16z"/>
+    <path d="M906 478 l12 -8 v16z"/>
+    <path d="M690 478 l12 -8 v16z"/>
+    <path d="M474 478 l12 -8 v16z"/>
+  </g>
+</svg>

@@ -78,3 +78,19 @@ function getMDXData() {
 export function getBlogArticles() {
   return getMDXData();
 }
+
+export function sortBlogArticlesByDateDesc(
+  articles: ReturnType<typeof getBlogArticles>,
+) {
+  return [...articles].sort((a, b) => {
+    const dateDifference =
+      new Date(b.blogMetadata.publishedAt).getTime() -
+      new Date(a.blogMetadata.publishedAt).getTime();
+
+    if (dateDifference !== 0) {
+      return dateDifference;
+    }
+
+    return a.blogMetadata.title.localeCompare(b.blogMetadata.title);
+  });
+}

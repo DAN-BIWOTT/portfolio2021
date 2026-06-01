@@ -19,7 +19,11 @@ export function ArticleLink({
   targetBlank?: boolean;
 }) {
   return (
-    <Link href={href} target={targetBlank ? "_blank" : "_self"}>
+    <Link
+      href={href}
+      target={targetBlank ? "_blank" : "_self"}
+      rel={targetBlank ? "noopener noreferrer" : undefined}
+    >
       <div className="group rounded-sm py-4 transition-all duration-300 sm:hover:cursor-pointer sm:hover:bg-popover sm:hover:px-4 sm:hover:shadow-md">
         <h3 className="mb-1 text-lg font-semibold sm:text-xl lg:mb-2">
           {title}

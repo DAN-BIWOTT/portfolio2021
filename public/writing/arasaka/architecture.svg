@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Arasaka Neural Bastion architecture</title>
+  <desc id="desc">A pipeline diagram showing market data, feature engineering, model research, automation scripts, AWS EC2 deployment, MQL5, and monitoring.</desc>
+  <rect width="1280" height="720" fill="#06110f"/>
+  <rect x="56" y="54" width="1168" height="612" rx="18" fill="#0b1b18" stroke="#1f6f62" stroke-width="2"/>
+  <text x="92" y="112" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Arasaka Neural Bastion</text>
+  <text x="92" y="148" fill="#95c8be" font-family="Arial, sans-serif" font-size="18">Forex ML research and automation pipeline</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="92" y="236" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="124" y="280" fill="#e5fffa" font-size="20" font-weight="700">Market Data</text>
+    <text x="124" y="310" fill="#9fd9cf" font-size="15">OHLCV</text>
+    <text x="124" y="334" fill="#9fd9cf" font-size="15">Indicators</text>
+
+    <rect x="340" y="236" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="368" y="278" fill="#e5fffa" font-size="20" font-weight="700">Features</text>
+    <text x="368" y="310" fill="#9fd9cf" font-size="15">Moving averages</text>
+    <text x="368" y="334" fill="#9fd9cf" font-size="15">Price structure</text>
+
+    <rect x="588" y="236" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="617" y="278" fill="#e5fffa" font-size="20" font-weight="700">Model Lab</text>
+    <text x="617" y="310" fill="#9fd9cf" font-size="15">LinearSVR</text>
+    <text x="617" y="334" fill="#9fd9cf" font-size="15">SFN ensemble</text>
+
+    <rect x="836" y="236" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="864" y="278" fill="#e5fffa" font-size="20" font-weight="700">Automation</text>
+    <text x="864" y="310" fill="#9fd9cf" font-size="15">Signals</text>
+    <text x="864" y="334" fill="#9fd9cf" font-size="15">Risk gates</text>
+
+    <rect x="588" y="454" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="617" y="496" fill="#e5fffa" font-size="20" font-weight="700">AWS EC2</text>
+    <text x="617" y="528" fill="#9fd9cf" font-size="15">Runtime host</text>
+    <text x="617" y="552" fill="#9fd9cf" font-size="15">Scheduled jobs</text>
+
+    <rect x="836" y="454" width="188" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="864" y="496" fill="#e5fffa" font-size="20" font-weight="700">MQL5</text>
+    <text x="864" y="528" fill="#9fd9cf" font-size="15">Execution bridge</text>
+    <text x="864" y="552" fill="#9fd9cf" font-size="15">Trading terminal</text>
+
+    <rect x="92" y="454" width="436" height="112" rx="14" fill="#102b26" stroke="#37b39d"/>
+    <text x="124" y="496" fill="#e5fffa" font-size="20" font-weight="700">Monitoring and Research Notes</text>
+    <text x="124" y="528" fill="#9fd9cf" font-size="15">Logs, backtests, model revisions, and rejected assumptions</text>
+  </g>
+
+  <g stroke="#42d6bd" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M280 292 H340"/>
+    <path d="M528 292 H588"/>
+    <path d="M776 292 H836"/>
+    <path d="M930 348 V454"/>
+    <path d="M836 510 H776"/>
+    <path d="M682 454 V348"/>
+    <path d="M588 510 H528"/>
+  </g>
+  <g fill="#42d6bd">
+    <path d="M336 292 l-12 -8 v16z"/>
+    <path d="M584 292 l-12 -8 v16z"/>
+    <path d="M832 292 l-12 -8 v16z"/>
+    <path d="M930 450 l-8 -12 h16z"/>
+    <path d="M780 510 l12 -8 v16z"/>
+    <path d="M682 352 l-8 12 h16z"/>
+    <path d="M532 510 l12 -8 v16z"/>
+  </g>
+</svg>

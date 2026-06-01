@@ -1,65 +1,45 @@
 export const allProjectItems = [
   {
-    title: "Design System",
-    ipadPhotoLink: "/mockups/ipad/component_library_ipad.png",
-    iphonePhotoLink: "/mockups/iphone/component_library_iphone.png",
+    title: "Lab 004 - Proprietary Capital Systems",
     descriptionSectionsArr: [
-      "This is my personal design system/philosophy based on Atomic Design by Brad Frost. This includes my theme and colour palette (used on this website), component primitives built on top of RadixUI and React Aria, and component composites constructed by integrating multiple primitives.",
+      "A live machine learning research and execution system that extends the ideas behind Arasaka into a more complete experimental capital pipeline. It currently runs online with GBP 1,000 allocated to the live trading experiment.",
+      "The project is organized as a modular Python system covering MT5 broker connectivity, data ingestion, cleaning, feature engineering, regime detection, ML-driven model signals, strategy construction, backtesting, risk aggregation, paper execution, and live operations.",
     ],
-    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
-    githubLink: "https://github.com/DAN-BIWOTT/portfolio2021/tree/master",
-    liveLinkArr: [
-     
+    techStackArr: [
+      "Python",
+      "MetaTrader5",
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "joblib",
+      "PyArrow",
+      "YAML",
+      "Scheduled Jobs",
     ],
+    liveLinkArr: [],
   },
 
   {
-    title: "Imaging Relative to Machine Learning",
-    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImage.png?raw=true",
-    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImageMobile.png?raw=true",
-    descriptionSectionsArr: [
-      "This is a quick website in which I'm documenting my evaluations of classical machine learning, feature extraction, and deep learning methods for binary image classification (Raccoon vs Rifle) using a curated OpenImages dataset.",
-      "This is a curiosity project in which I try to answer the question, 'Could machines have the potential for a more intimate connection with reality than beings of flesh and blood?' ",
-      "I'm exploring how computer vision allows machines to gain a better understanding of reality because of all the spectrums it can perceive. Whether that leads to 'deeper' connection to reality than animals is a whole other can of worms."
-    ],
-    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
-    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
-    liveLinkArr: [
-      {
-        linkDesc: "In-depth",
-        link: "https://dan-biwott.github.io/pages/ML-imaging.html"
-      }
-    ],
-  },
-
-   {
-    title: "CKC Fifa Tournament",
-    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc.png?raw=true",
-    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc%20mobile.png?raw=true",
-    descriptionSectionsArr: [
-      "This is a quick website intended to spice things up for the kids over the christmas period.",
-      "(This Demo project uses anonymised participant data. Names shown are fictional or modified for demonstration purposes. No personal or identifying information of children is shared.)"
-    ],
-    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
-    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
-    liveLinkArr: [
-      {
-        linkDesc: "Demo Version",
-        link: "https://ckc-fifa-2026-next-migration-zqyc.vercel.app/"
-      }
-    ],
-  },
-
-   {
     title: "Arasaka Neural Bastion",
-    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
-    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/arasaka.png?raw=true",
+    ipadPhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/f2348ea26498324dbbf8012e959e42911c5aa92a/assets/img/arasaka%20home.png",
+    iphonePhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/arasaka.png?raw=true",
     descriptionSectionsArr: [
-      "An ongoing Research Project focused on developing and refining advanced trading strategies using Machine Learning.",
-      "The trading strategies are experimental and only serve to answer 'why not?' questions I have."
-       ],
-    techStackArr: ["Laravel", "Php", "Python", "ONNX","MySql", "Heroku", "AWS EC2", "MQL5",],
-    githubLink: "https://github.com/DAN-BIWOTT/Arasaka-TradingSystems",
+      "An ongoing forex and financial machine learning research project focused on developing, evaluating, and refining experimental trading strategies.",
+      "The system combines model research, automation scripts, MQL5 integration, and AWS EC2 deployment work. The strategies are experimental and only serve to answer 'why not?' questions I have.",
+    ],
+    techStackArr: [
+      "Laravel",
+      "Php",
+      "Python",
+      "ONNX",
+      "MySql",
+      "Heroku",
+      "AWS EC2",
+      "MQL5",
+    ],
+    githubLink: "https://github.com/DAN-BIWOTT/Arasaka-Neural-Bastion",
     liveLinkArr: [
       {
         linkDesc: "Frontend demo version",
@@ -68,14 +48,155 @@ export const allProjectItems = [
     ],
   },
 
-   {
+  {
+    title: "Gym Primer",
+    ipadPhotoLink: "/mockups/projects/gym-primer-dashboard.png",
+    iphonePhotoLink: "/mockups/projects/gym-primer-mobile.png",
+    descriptionSectionsArr: [
+      "A multi-role coaching platform for personal trainers, clients, and platform admins. It supports coach workspaces for client management, workout planning, operations, packages, billing, and payments.",
+      "The client side handles workout delivery, logging, habits, check-ins, onboarding, and billing, while the admin area covers coach oversight, accounting, bookkeeping, and monitoring.",
+    ],
+    techStackArr: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Auth.js",
+      "Stripe",
+      "Resend",
+      "Sentry",
+    ],
+    liveLinkArr: [
+      {
+        linkDesc: "Website",
+        link: "https://www.gymprimer.co.uk/",
+      },
+    ],
+  },
+
+  {
+    title: "CKC Induction Platform",
+    descriptionSectionsArr: [
+      "A staff induction and operations platform for Cambridge Kids Club. Staff can work through tutorials, submit task evidence, manage profile details, and set regular or holiday availability across devices.",
+      "Admins can review submitted tasks, configure tutorial task details, reorder tutorials with drag-and-drop, upload PDFs as tutorial media, and manage holiday availability periods.",
+    ],
+    techStackArr: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Docker",
+      "Caddy",
+    ],
+    liveLinkArr: [],
+  },
+
+  {
+    title: "Finance Dashboard",
+    ipadPhotoLink: "/mockups/projects/finance-dashboard.png",
+    iphonePhotoLink: "/mockups/projects/finance-mobile.png",
+    descriptionSectionsArr: [
+      "A personal finance and budgeting dashboard with saved budget plans, statement imports, bill analysis, and visual reporting.",
+      "The app pairs a React frontend with a GraphQL API and Postgres persistence, with deployment support through a Render blueprint.",
+    ],
+    techStackArr: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "TailwindCSS",
+      "GraphQL Yoga",
+      "PostgreSQL",
+      "Recharts",
+      "Render",
+    ],
+    liveLinkArr: [],
+  },
+
+  {
+    title: "EPOS Intake Prototype",
+    descriptionSectionsArr: [
+      "A CLI and local desktop workflow for reconciling supplier invoices against an EPOS stock catalog. It parses invoice CSVs, reads photographed invoice images through Windows OCR, normalizes product details, and exports matched, review, and unmatched results.",
+      "The desktop UI adds file pickers, CSV previews, review queues, manual mapping approvals, and barcode follow-up for images where OCR cannot recover enough product data.",
+    ],
+    techStackArr: ["Python", "Windows OCR", "Pillow", "CSV", "Desktop UI"],
+    liveLinkArr: [],
+  },
+
+  {
+    title: "Design System",
+    ipadPhotoLink: "/mockups/ipad/component_library_ipad.png",
+    iphonePhotoLink: "/mockups/iphone/component_library_iphone.png",
+    descriptionSectionsArr: [
+      "This is my personal design system/philosophy based on Atomic Design by Brad Frost. This includes my theme and colour palette (used on this website), component primitives built on top of RadixUI and React Aria, and component composites constructed by integrating multiple primitives.",
+    ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/DAN-BIWOTT/portfolio2021/tree/master",
+    liveLinkArr: [],
+  },
+
+  {
+    title: "Imaging Relative to Machine Learning",
+    ipadPhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImage.png?raw=true",
+    iphonePhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/machineImageMobile.png?raw=true",
+    descriptionSectionsArr: [
+      "This is a quick website in which I'm documenting my evaluations of classical machine learning, feature extraction, and deep learning methods for binary image classification (Raccoon vs Rifle) using a curated OpenImages dataset.",
+      "This is a curiosity project in which I try to answer the question, 'Could machines have the potential for a more intimate connection with reality than beings of flesh and blood?' ",
+      "I'm exploring how computer vision allows machines to gain a better understanding of reality because of all the spectrums it can perceive. Whether that leads to 'deeper' connection to reality than animals is a whole other can of worms.",
+    ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
+    liveLinkArr: [
+      {
+        linkDesc: "In-depth",
+        link: "https://dan-biwott.github.io/pages/ML-imaging.html",
+      },
+    ],
+  },
+
+  {
+    title: "CKC Fifa Tournament",
+    ipadPhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc.png?raw=true",
+    iphonePhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/ckc%20mobile.png?raw=true",
+    descriptionSectionsArr: [
+      "This is a quick website intended to spice things up for the kids over the christmas period.",
+      "(This Demo project uses anonymised participant data. Names shown are fictional or modified for demonstration purposes. No personal or identifying information of children is shared.)",
+    ],
+    techStackArr: ["TypeScript", "ReactJS", "TailwindCSS", "Vite"],
+    githubLink: "https://github.com/DAN-BIWOTT/ckc-fifa-2026-next",
+    liveLinkArr: [
+      {
+        linkDesc: "Demo Version",
+        link: "https://ckc-fifa-2026-next-migration-zqyc.vercel.app/",
+      },
+    ],
+  },
+
+  {
     title: "University of Nurses",
-    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/97628efc30789b76ae91c6d571e983a11fc450fd/assets/img/UniversityOfNurses.png",
-    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/UON.png?raw=true",
+    ipadPhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/DAN-BIWOTT.github.io/97628efc30789b76ae91c6d571e983a11fc450fd/assets/img/UniversityOfNurses.png",
+    iphonePhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/UON.png?raw=true",
     descriptionSectionsArr: [
       "A client's Start-up Content Management system demo. Designed and built to accommodate nursing assignments and academic paper purchase.",
-       ],
-    techStackArr: ["React", "GraphQl"," Firebase"," Hasura"," Netlify"," Postgres"," Heroku"," Html"," Css"," Js"],
+    ],
+    techStackArr: [
+      "React",
+      "GraphQl",
+      " Firebase",
+      " Hasura",
+      " Netlify",
+      " Postgres",
+      " Heroku",
+      " Html",
+      " Css",
+      " Js",
+    ],
     githubLink: "https://github.com/DAN-BIWOTT/UniversityOfNursing",
     liveLinkArr: [
       {
@@ -85,14 +206,16 @@ export const allProjectItems = [
     ],
   },
 
-    {
+  {
     title: "Unreal Destinations",
-    ipadPhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/f55f915136b26309e3fe212e4fa0e0d9aa04fa68/src/Assets/unreal.png?raw=true",
-    iphonePhotoLink: "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/unreal%20mobile.png?raw=true",
+    ipadPhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/f55f915136b26309e3fe212e4fa0e0d9aa04fa68/src/Assets/unreal.png?raw=true",
+    iphonePhotoLink:
+      "https://raw.githubusercontent.com/DAN-BIWOTT/portfolio2021/refs/heads/main/src/Assets/unreal%20mobile.png?raw=true",
     descriptionSectionsArr: [
       "A weekend's worth of design experiments with a test project.",
-       ],
-    techStackArr: ["React", "GraphQl","Html", "Css", "Scss", "Js",],
+    ],
+    techStackArr: ["React", "GraphQl", "Html", "Css", "Scss", "Js"],
     githubLink: "https://github.com/DAN-BIWOTT/gastby-travel",
     liveLinkArr: [
       {
@@ -101,12 +224,9 @@ export const allProjectItems = [
       },
     ],
   },
- 
-
 ];
 
 export const awardItems = [
-
   {
     title: "Mastercard Foundation's  Social Entrepreneurship Fund ",
     issuer: "MasterCard Foundation",
@@ -120,40 +240,74 @@ export const awardItems = [
     awardUrl:
       "https://www.qut.edu.au/study/fees-and-scholarships/scholarships/international-merit-scholarship",
     desc: "A high achievement scholarship for future international postgraduate students.",
-  
-  }
-
+  },
 ];
 
 export const featuredProjects = [
   {
-    name: "World Integrity Engine",
-    description: "This is a Proof of Concept tool that helps authors maintain consistency across complex fictional worlds by tracking rules, facts, timelines, and knowledge states. It flags logical and continuity conflicts without influencing creative direction, allowing writers to focus on storytelling while keeping their worlds coherent.",
-    tags: ["Many Worlds Theory", "Machine Learning", "React JS", "Javascript", "Vectors", "Microsoft Azure AI Foundry"],
-    websiteLink: "https://dan-biwott.github.io/pages/world-integrity-engine.html",
-    githubLink: "https://github.com/DAN-BIWOTT/World-Integrity-Engine",
+    name: "Lab 004 - Proprietary Capital Systems",
+    description:
+      "A live machine learning research and execution system that extends Arasaka into a modular experimental capital pipeline, with MT5 connectivity, data ingestion, feature engineering, regime routing, ML-driven model signals, backtests, risk aggregation, paper execution, scheduled jobs, and a GBP 1,000 live trading allocation.",
+    tags: [
+      "Forex",
+      "Python",
+      "MetaTrader5",
+      "Risk",
+      "Live Trading",
+      "scikit-learn",
+    ],
+    articleLink: "/writing/lab-004-proprietary-capital-systems",
   },
 
   {
     name: "Arasaka Neural Bastion",
     description:
-      "This is a Pipeline focused on developing experimental trading strategies using an ensemble model combining LinearSVR and SFN. The model leverages market data features like price, volume, and moving averages to predict trends, optimize trading, and adapt to dynamic market conditions through machine learning and Automation Scripts.",
-    tags:["ML-Finance Pipeline"],
-    websiteLink: "#",
+      "A forex and financial machine learning research pipeline deployed around AWS EC2, automation scripts, MQL5 integration, and experimental model-driven strategy development.",
+    tags: ["Forex", "Machine Learning", "AWS EC2", "MQL5", "Python"],
     githubLink: "https://github.com/DAN-BIWOTT/Arasaka-Neural-Bastion",
+  },
+
+  {
+    name: "Gym Primer",
+    description:
+      "A multi-role coaching platform for personal trainers, clients, and platform admins. It covers coach operations, workout delivery, client check-ins, habit tracking, onboarding, billing, Stripe Connect payments, transactional email, and monitoring.",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Stripe", "Auth.js", "Sentry"],
+    websiteLink: "https://www.gymprimer.co.uk/",
+  },
+
+  {
+    name: "CKC Induction Platform",
+    description:
+      "A staff induction and operations platform for Cambridge Kids Club, with tutorials, task submissions, admin review workflows, staff availability, profile management, PDF tutorial media, and Docker-based deployment.",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Docker"],
+  },
+
+  {
+    name: "Finance Dashboard",
+    description:
+      "A finance and budgeting dashboard with statement imports, bill analysis, saved budget plans, visual reporting, a GraphQL API, and Postgres-backed persistence.",
+    tags: ["React", "GraphQL", "PostgreSQL", "Recharts", "Render"],
+  },
+
+  {
+    name: "World Integrity Engine",
+    description:
+      "This is a Proof of Concept tool that helps authors maintain consistency across complex fictional worlds by tracking rules, facts, timelines, and knowledge states. It flags logical and continuity conflicts without influencing creative direction, allowing writers to focus on storytelling while keeping their worlds coherent.",
+    tags: [
+      "Many Worlds Theory",
+      "Machine Learning",
+      "React JS",
+      "Javascript",
+      "Vectors",
+      "Microsoft Azure AI Foundry",
+    ],
+    websiteLink:
+      "https://dan-biwott.github.io/pages/world-integrity-engine.html",
+    githubLink: "https://github.com/DAN-BIWOTT/World-Integrity-Engine",
   },
 ];
 
-export const featuredLinks = [
-  // {
-  //   desc: "Next-Generation African Leaders Announced as Winners of the  Resolution Social Venture Challenge",
-  //   url: "https://mastercardfdn.org/next-generation-african-leaders-announced-as-winners-of-the-resolution-social-venture-challenge-2/",
-  // },
-  {
-    desc: "",
-    url: "#"
-  }
-];
+export const featuredLinks: { desc: string; url: string }[] = [];
 
 export const galleryPagePhotos = [
   {
@@ -363,27 +517,7 @@ export const galleryPagePhotoUrls = galleryPagePhotos.map(
   (photo) => `/shooting/${photo.imageName}`,
 );
 
-export const keysUsedInNavigation = [
-  "Digit1",
-  "Digit2",
-  "Digit3",
-  "Digit4",
-  "Digit5",
-  "Digit6",
-  "KeyG",
-  "KeyE",
-  "KeyL",
-  "KeyD",
-  "KeyT",
-];
-
-export const miscLinks = [
-  {
-    desc: "",
-    descUrl: "",
-    url: "",
-  },
-];
+export const miscLinks: { desc: string; descUrl: string; url: string }[] = [];
 
 export const readBooks = [
   {

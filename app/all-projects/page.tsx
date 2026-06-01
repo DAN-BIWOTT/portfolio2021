@@ -18,21 +18,30 @@ export default function AllProjectsPage() {
 
       {allProjectItems.map((project, index) => (
         <div className="mb-12" key={index}>
-          <div className="rounded-md bg-primary/20 p-2 dark:bg-primary/10 lg:flex lg:items-center lg:justify-center lg:gap-4 lg:py-8">
-            <img
-              src={project.ipadPhotoLink}
-              alt=""
-              className="mx-auto w-80 sm:h-80 sm:w-[26rem] lg:mx-0"
-            />
-            {project.iphonePhotoLink && (
+          {project.ipadPhotoLink ? (
+            <div className="rounded-md bg-primary/20 p-2 dark:bg-primary/10 lg:flex lg:items-center lg:justify-center lg:gap-4 lg:py-8">
               <img
-                src={project.iphonePhotoLink}
-                alt=""
-                className="hidden h-72 w-[10rem] lg:inline "
+                src={project.ipadPhotoLink}
+                alt={`${project.title} tablet mockup`}
+                className="mx-auto w-80 sm:h-80 sm:w-[26rem] lg:mx-0"
               />
-            )}
-          </div>
-          <h3 className="mt-4 text-lg font-semibold sm:text-2xl ">
+              {project.iphonePhotoLink && (
+                <img
+                  src={project.iphonePhotoLink}
+                  alt={`${project.title} mobile mockup`}
+                  className="hidden h-72 w-[10rem] lg:inline"
+                />
+              )}
+            </div>
+          ) : (
+            <div className="rounded-md bg-primary/20 px-4 py-10 dark:bg-primary/10">
+              <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                Project
+              </p>
+              <p className="mt-2 text-2xl font-semibold">{project.title}</p>
+            </div>
+          )}
+          <h3 className="mt-4 text-lg font-semibold sm:text-2xl">
             {project.title}
           </h3>
           {project.descriptionSectionsArr.map((section, index) => (

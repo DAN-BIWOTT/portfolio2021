@@ -2,20 +2,26 @@ import Link from "next/link";
 import {
   ArrowUpRightIcon,
   GithubIcon,
-  LinkedinIcon,
   MailIcon,
+  type LucideIcon,
 } from "lucide-react";
 
 import { ThemeToggleButton } from "@/components/theme-toggle-button";
 import { NavigationButton } from "@/components/navigation-button";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { externalNavigationItems, navigationItems } from "@/lib/navigation";
+
+const externalNavigationIcons: Record<string, LucideIcon> = {
+  GitHub: GithubIcon,
+  Email: MailIcon,
+};
 
 export const NavMenuContent = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       {/* Top sidebar  */}
-      <div className=" flex min-w-60 flex-col gap-3 px-4 pt-6">
+      <div className="flex min-w-60 flex-col gap-3 px-4 pt-6">
         <Link href="/">
           <div className="mb-2 flex cursor-pointer items-center gap-2 rounded-md py-2 pl-1.5 pr-4 text-sm font-medium hover:bg-accent">
             <Avatar className="h-8 w-8">
@@ -30,58 +36,41 @@ export const NavMenuContent = () => {
             </div>
           </div>
         </Link>
-        <Link href="/">
-          <NavigationButton label="Home" keyboardShortcut={1} />
-        </Link>
-        <Link href="/writing">
-          <NavigationButton label="Writing" keyboardShortcut={2} />
-        </Link>
-        <Link href="/reading">
-          <NavigationButton label="Reading" keyboardShortcut={3} />
-        </Link>
-        <Link href="/shooting">
-          <NavigationButton label="Shooting" keyboardShortcut={4} />
-        </Link>
-        <Link href="/all-projects">
-          <NavigationButton label="All projects" keyboardShortcut={5} />
-        </Link>
-        <Link href="/more-about-me">
-          <NavigationButton label="More about me" keyboardShortcut={6} />
-        </Link>
+        {navigationItems.map((item) => (
+          <Link href={item.href} key={item.href}>
+            <NavigationButton item={item} />
+          </Link>
+        ))}
       </div>
 
       {/* Bottom sidebar  */}
       <div className="flex min-w-60 flex-col gap-3 px-4 pb-6 pt-8">
-        <a
-          href="https://github.com/DAN-BIWOTT"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabIndex={-1}
-        >
-          <Button variant="ghost" className="w-full justify-start" size="sm">
-            <GithubIcon className="mr-2 h-4 w-4" />
-            <span>GitHub</span>
-            <ArrowUpRightIcon className="ml-1.5 h-4 w-4" />
-            <span className="ml-auto mr-1.5 rounded-sm border bg-secondary px-1.5 text-muted-foreground">
-              G
-            </span>
-          </Button>
-        </a>
-        <a
-          href="mailto:dankibiwott@proton.me"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabIndex={-1}
-        >
-          <Button variant="ghost" className="w-full justify-start" size="sm">
-            <MailIcon className="mr-2 h-4 w-4" />
-            <span>Email</span>
-            <ArrowUpRightIcon className="ml-1.5 h-4 w-4" />
-            <span className="ml-auto mr-1.5 rounded-sm border bg-secondary px-1.5 text-muted-foreground">
-              E
-            </span>
-          </Button>
-        </a>
+        {externalNavigationItems.map((item) => {
+          const Icon = externalNavigationIcons[item.label];
+
+          return (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={-1}
+              key={item.href}
+            >
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                size="sm"
+              >
+                <Icon className="mr-2 h-4 w-4" />
+                <span>{item.label}</span>
+                <ArrowUpRightIcon className="ml-1.5 h-4 w-4" />
+                <span className="ml-auto mr-1.5 rounded-sm border bg-secondary px-1.5 text-muted-foreground">
+                  {item.keyboardShortcut}
+                </span>
+              </Button>
+            </a>
+          );
+        })}
         {/* <a
           href="https://www.linkedin.com/in/dankibiwott/"
           target="_blank"

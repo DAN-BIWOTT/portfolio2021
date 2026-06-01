@@ -11,14 +11,13 @@ export default function HomePage() {
         </h1>
 
         <p className="mb-4 leading-7 lg:mb-6">
-          Hello 👋 I'm Dan Kibiwott, a Fullstack Software Developer and 
-          Machine Learning Engineer based in Cambridge,
-          United Kingdom. I'm passionate about building systems that combine human 
-          creativity with computational intelligence. 
-          
-          <br/><br/>Welcome to my personal website, where you get a behind
-          the scenes look of what I'm currently learning, exploring and
-          creating.
+          Hello, I'm Dan Kibiwott, a full-stack software developer and machine
+          learning engineer based in Cambridge, United Kingdom. I build systems
+          that combine human creativity with computational intelligence.
+          <br />
+          <br />
+          Welcome to my personal website, where you get a behind-the-scenes look
+          at what I'm currently learning, exploring, and creating.
         </p>
       </div>
 

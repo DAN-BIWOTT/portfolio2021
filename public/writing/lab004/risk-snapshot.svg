@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 004 risk snapshot</title>
+  <desc id="desc">A dashboard-style graphic summarizing six-symbol H1 forex coverage, portfolio risk checks, paper execution, and live allocation.</desc>
+  <rect width="1280" height="720" fill="#07110f"/>
+  <text x="86" y="96" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Risk Snapshot</text>
+  <text x="86" y="132" fill="#99cfc5" font-family="Arial, sans-serif" font-size="18">Six-symbol H1 forex pipeline with risk aggregation and execution reconciliation.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="86" y="186" width="330" height="154" rx="18" fill="#102b26" stroke="#39cdb4"/>
+    <text x="122" y="236" fill="#e5fffa" font-size="22" font-weight="700">Universe</text>
+    <text x="122" y="276" fill="#9fd9cf" font-size="17">EURUSD GBPUSD USDJPY</text>
+    <text x="122" y="306" fill="#9fd9cf" font-size="17">AUDUSD USDCAD USDCHF</text>
+
+    <rect x="474" y="186" width="330" height="154" rx="18" fill="#102b26" stroke="#39cdb4"/>
+    <text x="510" y="236" fill="#e5fffa" font-size="22" font-weight="700">Latest Risk Run</text>
+    <text x="510" y="276" fill="#9fd9cf" font-size="17">Portfolio Sharpe-like: 1.8679</text>
+    <text x="510" y="306" fill="#9fd9cf" font-size="17">Max drawdown: -1.4732</text>
+
+    <rect x="862" y="186" width="330" height="154" rx="18" fill="#102b26" stroke="#39cdb4"/>
+    <text x="898" y="236" fill="#e5fffa" font-size="22" font-weight="700">Live Allocation</text>
+    <text x="898" y="276" fill="#9fd9cf" font-size="17">GBP 1,000 starting capital</text>
+    <text x="898" y="306" fill="#9fd9cf" font-size="17">0.01 lot execution setting</text>
+
+    <rect x="86" y="410" width="520" height="172" rx="18" fill="#102b26" stroke="#39cdb4"/>
+    <text x="122" y="462" fill="#e5fffa" font-size="22" font-weight="700">Reliability Lessons</text>
+    <text x="122" y="504" fill="#9fd9cf" font-size="17">Normalize cross-symbol PnL before ranking.</text>
+    <text x="122" y="534" fill="#9fd9cf" font-size="17">Discover broker execution constraints per symbol.</text>
+    <text x="122" y="564" fill="#9fd9cf" font-size="17">Reconcile target positions after every run.</text>
+
+    <rect x="674" y="410" width="518" height="172" rx="18" fill="#102b26" stroke="#39cdb4"/>
+    <text x="710" y="462" fill="#e5fffa" font-size="22" font-weight="700">Operating Mode</text>
+    <text x="710" y="504" fill="#9fd9cf" font-size="17">Hourly checks through scheduled jobs.</text>
+    <text x="710" y="534" fill="#9fd9cf" font-size="17">Daily training and evaluation loop.</text>
+    <text x="710" y="564" fill="#9fd9cf" font-size="17">Logs and reports over intuition.</text>
+  </g>
+</svg>

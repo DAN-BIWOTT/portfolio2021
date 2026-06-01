@@ -120,12 +120,12 @@
   width: 100%;
   height: auto;
 }
-@media (min-width: 400px) {
+@media (min-width: 640px) {
   .masonry {
     column-count: 2;
   }
 }
-@media (min-width: 400px) {
+@media (min-width: 1024px) {
   .masonry {
     column-count: 3;
   }

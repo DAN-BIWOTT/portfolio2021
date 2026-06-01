@@ -1,6 +1,9 @@
 import { ArticleLink } from "@/components/article-link";
 
-import { getBlogArticles } from "@/app/writing/writing-utils";
+import {
+  getBlogArticles,
+  sortBlogArticlesByDateDesc,
+} from "@/app/writing/writing-utils";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = {
@@ -22,11 +25,23 @@ export default function WritingPage() {
 }
 
 function AllArticlesList() {
-  const allArticles = getBlogArticles();
+  const allArticles = sortBlogArticlesByDateDesc(getBlogArticles());
 
   return (
     <div className="flex flex-col gap-1">
-    <ArticleLink
+      {allArticles.map((post) =>
+        post.blogMetadata.published === "yes" ? (
+          <ArticleLink
+            key={post.slug}
+            title={post.blogMetadata.title}
+            href={`/writing/${post.slug}`}
+            formattedDate={formatDate(post.blogMetadata.publishedAt, false)}
+            contentPreview={post.blogMetadata.preview}
+            published={post.blogMetadata.published === "yes"}
+          />
+        ) : null,
+      )}
+      <ArticleLink
         title="Machine Learning for Imaging"
         href="https://dan-biwott.github.io/pages/ML-imaging.html"
         formattedDate={"2023 - 2024"}
@@ -36,29 +51,6 @@ function AllArticlesList() {
         published={true}
         targetBlank
       />
-      {allArticles
-        .sort((a, b) => {
-          if (
-            new Date(a.blogMetadata.publishedAt) >
-            new Date(b.blogMetadata.publishedAt)
-          ) {
-            return -1;
-          } else {
-            return 1;
-          }
-        })
-        .map((post) =>
-          post.blogMetadata.published === "yes" ? (
-            <ArticleLink
-              key={post.slug}
-              title={post.blogMetadata.title}
-              href={`/writing/${post.slug}`}
-              formattedDate={formatDate(post.blogMetadata.publishedAt, false)}
-              contentPreview={post.blogMetadata.preview}
-              published={post.blogMetadata.published === "yes"}
-            />
-          ) : null,
-        )}
     </div>
   );
 }
