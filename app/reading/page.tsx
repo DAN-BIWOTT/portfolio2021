@@ -12,9 +12,10 @@ export default function ReadingPage() {
       </h1>
 
       <p className="mb-4 leading-7 lg:mb-6">
-        In this space, I keep a collection of books I have read recently. Most of
-        the stuff I read these days is technical, including revisiting text
-        books from my college courses and exploring new programming books.
+        In this space, I keep a collection of books and research papers I have
+        read recently. Most of the stuff I read these days is technical,
+        including revisiting text books from my college courses, exploring new
+        programming books, and chasing down papers that catch my attention.
         However, I do dive into some fiction every now and then. So if you're
         curious about stuff that interests me, please take a look around!
       </p>

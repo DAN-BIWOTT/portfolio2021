@@ -521,6 +521,19 @@ export const miscLinks: { desc: string; descUrl: string; url: string }[] = [];
 
 export const readBooks = [
   {
+    name: "It's written in the massive stars: The role of stellar physics in the formation of black holes",
+    authors: "E. Laplace, F. R. N. Schneider, and Ph. Podsiadlowski",
+    finishDate: "06/26",
+    link: "https://www.aanda.org/articles/aa/full_html/2025/03/aa51077-24/aa51077-24.html",
+  },
+  {
+    name: "Borophene: A 2D wonder shaping the future of nanotechnology and materials science",
+    authors:
+      "Raghvendra Kumar Mishra, Jayati Sarkar, Kartikey Verma, Iva Chianella, Saurav Goel, and Hamed Yazdani Nezhad",
+    finishDate: "06/26",
+    link: "https://www.sciencedirect.com/science/article/pii/S2589965124000412",
+  },
+  {
     name: "Programming in C, 4th Edition",
     authors: "Stephen G. Kochan",
     finishDate: "05/24",
