@@ -2,19 +2,16 @@ export const allProjectItems = [
   {
     title: "Lab 004 - Proprietary Capital Systems",
     descriptionSectionsArr: [
-      "A live machine learning research and execution system that extends the ideas behind Arasaka into a more complete experimental capital pipeline. It currently runs online with GBP 1,000 allocated to the live trading experiment.",
-      "The project is organized as a modular Python system covering MT5 broker connectivity, data ingestion, cleaning, feature engineering, regime detection, ML-driven model signals, strategy construction, backtesting, risk aggregation, paper execution, and live operations.",
+      "A months-long machine learning research and execution system that extended the ideas behind Arasaka into a complete experimental capital pipeline. I eventually stopped the live experiment after the evidence did not justify continuing it, but the project remains one of my strongest research and systems-engineering case studies.",
+      "The project is organized as a modular Python system covering MT5 broker connectivity, data ingestion, cleaning, feature engineering, regime detection, ML-driven model signals, strategy construction, backtesting, risk aggregation, paper execution, loss-guard monitoring, scheduled jobs, logs, and post-run analysis.",
     ],
     techStackArr: [
+      "Forex",
       "Python",
       "MetaTrader5",
-      "pandas",
-      "NumPy",
+      "Risk",
+      "Research Logs",
       "scikit-learn",
-      "joblib",
-      "PyArrow",
-      "YAML",
-      "Scheduled Jobs",
     ],
     liveLinkArr: [],
   },
@@ -247,13 +244,13 @@ export const featuredProjects = [
   {
     name: "Lab 004 - Proprietary Capital Systems",
     description:
-      "A live machine learning research and execution system that extends Arasaka into a modular experimental capital pipeline, with MT5 connectivity, data ingestion, feature engineering, regime routing, ML-driven model signals, backtests, risk aggregation, paper execution, scheduled jobs, and a GBP 1,000 live trading allocation.",
+      "A Python and MetaTrader5 forex research system with data ingestion, feature engineering, regime routing, scikit-learn signal models, risk aggregation, scheduled execution, loss-guard monitoring, broker reconciliation, and research charts generated from operational logs.",
     tags: [
       "Forex",
       "Python",
       "MetaTrader5",
       "Risk",
-      "Live Trading",
+      "Research Logs",
       "scikit-learn",
     ],
     articleLink: "/writing/lab-004-proprietary-capital-systems",

@@ -10,7 +10,15 @@ import {
 
 import { featuredProjects } from "@/lib/constants";
 
+const hasProjectLink = (project: (typeof featuredProjects)[number]) =>
+  Boolean(project.websiteLink || project.articleLink || project.githubLink);
+
 export const FeaturedProjectsTable = () => {
+  const linkedProjectsFirst = [...featuredProjects].sort((a, b) => {
+    if (hasProjectLink(a) === hasProjectLink(b)) return 0;
+    return hasProjectLink(a) ? -1 : 1;
+  });
+
   return (
     <Table>
       <TableCaption>
@@ -27,7 +35,7 @@ export const FeaturedProjectsTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody className="group">
-        {featuredProjects.map((project, index) => (
+        {linkedProjectsFirst.map((project, index) => (
           <TableRow
             key={index}
             className="transition-opacity duration-300 sm:hover:bg-background sm:group-hover:opacity-40 sm:group-hover:hover:opacity-100"

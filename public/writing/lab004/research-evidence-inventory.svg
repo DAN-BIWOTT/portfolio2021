@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">Research Evidence Inventory</title>
+<desc id="desc">Saved JSON reports by module in the final Lab 004 operational snapshot.</desc>
+<rect width="1200" height="680" rx="0" fill="#08110f"/>
+<rect x="42" y="42" width="1116" height="596" rx="8" fill="#0d1d19" stroke="#1c3a34"/>
+<text x="72" y="94" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Research Evidence Inventory</text>
+<text x="72" y="128" fill="#91b7ae" font-family="Arial, sans-serif" font-size="18">Saved JSON reports by module in the final Lab 004 operational snapshot.</text>
+<line x1="116" y1="524.0" x2="1092" y2="524.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="102" y="529.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">0</text>
+<line x1="116" y1="349.0" x2="1092" y2="349.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="102" y="354.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">3253</text>
+<line x1="116" y1="174.0" x2="1092" y2="174.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="102" y="179.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">6506</text>
+<line x1="116" y1="524" x2="1092" y2="524" stroke="#3b675d"/>
+<line x1="116" y1="174" x2="116" y2="524" stroke="#3b675d"/>
+<rect x="116.0" y="504.1" width="77.8" height="19.9" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="154.9" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m1</text>
+<text x="154.9" y="494.1" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">370</text>
+<rect x="205.8" y="504.1" width="77.8" height="19.9" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="244.7" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m2</text>
+<text x="244.7" y="494.1" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">370</text>
+<rect x="295.6" y="504.1" width="77.8" height="19.9" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="334.5" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m3</text>
+<text x="334.5" y="494.1" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">370</text>
+<rect x="385.5" y="504.1" width="77.8" height="19.9" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="424.4" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m4</text>
+<text x="424.4" y="494.1" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">370</text>
+<rect x="475.3" y="502.9" width="77.8" height="21.1" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="514.2" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m5</text>
+<text x="514.2" y="492.9" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">392</text>
+<rect x="565.1" y="520.6" width="77.8" height="3.4" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="604.0" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m5_train</text>
+<text x="604.0" y="510.6" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">63</text>
+<rect x="654.9" y="502.9" width="77.8" height="21.1" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="693.8" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m6</text>
+<text x="693.8" y="492.9" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">392</text>
+<rect x="744.7" y="520.6" width="77.8" height="3.4" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="783.6" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m7</text>
+<text x="783.6" y="510.6" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">63</text>
+<rect x="834.5" y="520.6" width="77.8" height="3.4" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="873.5" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m8</text>
+<text x="873.5" y="510.6" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">63</text>
+<rect x="924.4" y="504.1" width="77.8" height="19.9" rx="3" fill="#60f0d4" opacity="0.88"/>
+<text x="963.3" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m9</text>
+<text x="963.3" y="494.1" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">370</text>
+<rect x="1014.2" y="174.0" width="77.8" height="350.0" rx="3" fill="#f4c95d" opacity="0.88"/>
+<text x="1053.1" y="552" text-anchor="middle" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">m9_loss_guard</text>
+<text x="1053.1" y="164.0" text-anchor="middle" fill="#e5fffa" font-family="Arial, sans-serif" font-size="13">6506</text>
+<text x="116" y="584" fill="#91b7ae" font-family="Arial, sans-serif" font-size="15">9329 saved report artifacts across ingestion, cleaning, features, regimes, signals, strategy, backtest, risk, paper execution, and guard monitoring.</text>
+</svg>

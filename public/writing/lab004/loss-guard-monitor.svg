@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">Loss Guard Monitor</title>
+<desc id="desc">Minute-level risk guard reports aggregated by UTC day.</desc>
+<rect width="1200" height="680" rx="0" fill="#08110f"/>
+<rect x="42" y="42" width="1116" height="596" rx="8" fill="#0d1d19" stroke="#1c3a34"/>
+<text x="72" y="94" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Loss Guard Monitor</text>
+<text x="72" y="128" fill="#91b7ae" font-family="Arial, sans-serif" font-size="18">Minute-level risk guard reports aggregated by UTC day.</text>
+<line x1="104" y1="520.0" x2="1092" y2="520.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="90" y="525.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">0</text>
+<line x1="104" y1="347.0" x2="1092" y2="347.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="90" y="352.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">478</text>
+<line x1="104" y1="174.0" x2="1092" y2="174.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="90" y="179.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">956</text>
+<line x1="104" y1="520" x2="1092" y2="520" stroke="#3b675d"/>
+<line x1="104" y1="174" x2="104" y2="520" stroke="#3b675d"/>
+<rect x="80.9" y="403.8" width="46.1" height="116.2" fill="#1f5f55" opacity="0.55"/>
+<rect x="80.9" y="459.4" width="46.1" height="60.5" fill="#f4c95d" opacity="0.9"/>
+<rect x="170.8" y="326.7" width="46.1" height="193.3" fill="#1f5f55" opacity="0.55"/>
+<rect x="170.8" y="459.4" width="46.1" height="60.5" fill="#f4c95d" opacity="0.9"/>
+<rect x="260.6" y="322.8" width="46.1" height="197.2" fill="#1f5f55" opacity="0.55"/>
+<rect x="260.6" y="398.9" width="46.1" height="121.1" fill="#f4c95d" opacity="0.9"/>
+<rect x="350.4" y="332.9" width="46.1" height="187.1" fill="#1f5f55" opacity="0.55"/>
+<rect x="440.2" y="431.0" width="46.1" height="89.0" fill="#1f5f55" opacity="0.55"/>
+<rect x="530.0" y="174.0" width="46.1" height="346.0" fill="#1f5f55" opacity="0.55"/>
+<rect x="619.9" y="325.3" width="46.1" height="194.7" fill="#1f5f55" opacity="0.55"/>
+<rect x="619.9" y="398.9" width="46.1" height="121.1" fill="#f4c95d" opacity="0.9"/>
+<circle cx="642.9" cy="202" r="8" fill="#ff6f61"/>
+<rect x="709.7" y="330.7" width="46.1" height="189.3" fill="#1f5f55" opacity="0.55"/>
+<rect x="709.7" y="459.4" width="46.1" height="60.5" fill="#f4c95d" opacity="0.9"/>
+<rect x="799.5" y="324.2" width="46.1" height="195.8" fill="#1f5f55" opacity="0.55"/>
+<rect x="799.5" y="398.9" width="46.1" height="121.1" fill="#f4c95d" opacity="0.9"/>
+<circle cx="822.5" cy="202" r="8" fill="#ff6f61"/>
+<rect x="889.3" y="374.5" width="46.1" height="145.5" fill="#1f5f55" opacity="0.55"/>
+<rect x="979.1" y="282.6" width="46.1" height="237.4" fill="#1f5f55" opacity="0.55"/>
+<rect x="1068.9" y="256.9" width="46.1" height="263.1" fill="#1f5f55" opacity="0.55"/>
+<rect x="1068.9" y="459.4" width="46.1" height="60.5" fill="#f4c95d" opacity="0.9"/>
+<text x="104" y="580" fill="#91b7ae" font-family="Arial, sans-serif" font-size="15">6506 guard reports | 10 breached positions | 10 guard closes | 3 daily stop triggers | 1 report errors</text>
+<rect x="760" y="82" width="20" height="12" fill="#1f5f55"/><text x="790" y="94" fill="#e5fffa" font-family="Arial, sans-serif" font-size="14">checks per day</text>
+<rect x="760" y="108" width="20" height="12" fill="#f4c95d"/><text x="790" y="120" fill="#e5fffa" font-family="Arial, sans-serif" font-size="14">closed breached positions</text>
+<circle cx="770" cy="141" r="7" fill="#ff6f61"/><text x="790" y="146" fill="#e5fffa" font-family="Arial, sans-serif" font-size="14">daily stop trigger</text>
+</svg>

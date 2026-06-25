@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">Lab 004 Risk Progression</title>
+<desc id="desc">Portfolio report metrics over the saved M8 research runs.</desc>
+<rect width="1200" height="680" rx="0" fill="#08110f"/>
+<rect x="42" y="42" width="1116" height="596" rx="8" fill="#0d1d19" stroke="#1c3a34"/>
+<text x="72" y="94" fill="#e5fffa" font-family="Arial, sans-serif" font-size="34" font-weight="700">Lab 004 Risk Progression</text>
+<text x="72" y="128" fill="#91b7ae" font-family="Arial, sans-serif" font-size="18">Portfolio report metrics over the saved M8 research runs.</text>
+<line x1="112" y1="530.0" x2="1090" y2="530.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="98" y="535.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">4.35</text>
+<line x1="112" y1="354.0" x2="1090" y2="354.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="98" y="359.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">7.31</text>
+<line x1="112" y1="178.0" x2="1090" y2="178.0" stroke="#21413a" stroke-width="1" opacity="0.65"/>
+<text x="98" y="183.0" text-anchor="end" fill="#91b7ae" font-family="Arial, sans-serif" font-size="13">10.27</text>
+<line x1="112" y1="530" x2="1090" y2="530" stroke="#3b675d"/>
+<line x1="112" y1="178" x2="112" y2="530" stroke="#3b675d"/>
+<path d="M112.00,340.16 L127.77,267.96 L143.55,369.44 L159.32,282.80 L175.10,297.22 L190.87,297.22 L206.65,297.22 L222.42,297.05 L238.19,288.87 L253.97,299.08 L269.74,278.95 L285.52,283.59 L301.29,283.59 L317.06,283.59 L332.84,337.61 L348.61,212.06 L364.39,346.18 L380.16,346.18 L395.94,346.18 L411.71,346.18 L427.48,346.18 L443.26,346.18 L459.03,356.56 L474.81,305.41 L490.58,343.52 L506.35,262.99 L522.13,262.99 L537.90,262.99 L553.68,221.84 L569.45,332.00 L585.23,312.87 L601.00,287.97 L616.77,337.86 L632.55,468.52 L648.32,382.42 L664.10,251.55 L679.87,274.09 L695.65,360.16 L711.42,317.00 L727.19,384.66 L742.97,434.53 L758.74,449.51 L774.52,495.94 L790.29,481.79 L806.06,449.89 L821.84,368.43 L837.61,324.43 L853.39,421.77 L869.16,476.58 L884.94,261.09 L900.71,273.80 L916.48,419.40 L932.26,358.08 L948.03,369.68 L963.81,253.47 L979.58,324.32 L995.35,334.21 L1011.13,332.65 L1026.90,394.59 L1042.68,331.24 L1058.45,331.24 L1074.23,397.75 L1090.00,331.88" fill="none" stroke="#60f0d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="112.0" cy="340.2" r="4" fill="#60f0d4"/>
+<circle cx="159.3" cy="282.8" r="4" fill="#60f0d4"/>
+<circle cx="206.6" cy="297.2" r="4" fill="#60f0d4"/>
+<circle cx="254.0" cy="299.1" r="4" fill="#60f0d4"/>
+<circle cx="301.3" cy="283.6" r="4" fill="#60f0d4"/>
+<circle cx="348.6" cy="212.1" r="4" fill="#60f0d4"/>
+<circle cx="395.9" cy="346.2" r="4" fill="#60f0d4"/>
+<circle cx="443.3" cy="346.2" r="4" fill="#60f0d4"/>
+<circle cx="490.6" cy="343.5" r="4" fill="#60f0d4"/>
+<circle cx="537.9" cy="263.0" r="4" fill="#60f0d4"/>
+<circle cx="585.2" cy="312.9" r="4" fill="#60f0d4"/>
+<circle cx="632.5" cy="468.5" r="4" fill="#60f0d4"/>
+<circle cx="679.9" cy="274.1" r="4" fill="#60f0d4"/>
+<circle cx="727.2" cy="384.7" r="4" fill="#60f0d4"/>
+<circle cx="774.5" cy="495.9" r="4" fill="#60f0d4"/>
+<circle cx="821.8" cy="368.4" r="4" fill="#60f0d4"/>
+<circle cx="869.2" cy="476.6" r="4" fill="#60f0d4"/>
+<circle cx="916.5" cy="419.4" r="4" fill="#60f0d4"/>
+<circle cx="963.8" cy="253.5" r="4" fill="#60f0d4"/>
+<circle cx="1011.1" cy="332.6" r="4" fill="#60f0d4"/>
+<circle cx="1058.5" cy="331.2" r="4" fill="#60f0d4"/>
+<path d="M112.00,334.29 L127.77,256.60 L143.55,359.20 L159.32,284.08 L175.10,293.93 L190.87,293.93 L206.65,293.93 L222.42,285.07 L238.19,286.15 L253.97,284.19 L269.74,282.66 L285.52,284.94 L301.29,284.94 L317.06,284.94 L332.84,334.71 L348.61,212.06 L364.39,336.81 L380.16,336.81 L395.94,336.81 L411.71,336.81 L427.48,336.81 L443.26,336.81 L459.03,352.87 L474.81,298.32 L490.58,345.25 L506.35,270.32 L522.13,270.32 L537.90,270.32 L553.68,222.31 L569.45,336.19 L585.23,311.62 L601.00,282.06 L616.77,346.26 L632.55,466.48 L648.32,380.92 L664.10,261.97 L679.87,286.64 L695.65,359.13 L711.42,320.72 L727.19,387.00 L742.97,435.35 L758.74,452.95 L774.52,495.94 L790.29,483.66 L806.06,452.18 L821.84,365.51 L837.61,324.79 L853.39,423.16 L869.16,477.79 L884.94,275.07 L900.71,283.93 L916.48,414.58 L932.26,362.70 L948.03,374.61 L963.81,254.59 L979.58,328.57 L995.35,340.77 L1011.13,335.86 L1026.90,392.47 L1042.68,335.19 L1058.45,335.19 L1074.23,398.32 L1090.00,330.00" fill="none" stroke="#f4c95d" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<text x="112" y="580" fill="#91b7ae" font-family="Arial, sans-serif" font-size="15">First: 2026-04-13 | Latest: 2026-06-15 | Latest PnL: 7.77 | Latest sharpe-like: 1.15 | Latest max drawdown: -1.04</text>
+<circle cx="820" cy="92" r="6" fill="#60f0d4"/><text x="836" y="98" fill="#e5fffa" font-family="Arial, sans-serif" font-size="15">portfolio total PnL net</text>
+<line x1="820" y1="120" x2="848" y2="120" stroke="#f4c95d" stroke-width="3" stroke-dasharray="8 8"/><text x="858" y="126" fill="#e5fffa" font-family="Arial, sans-serif" font-size="15">sharpe-like, rescaled</text>
+</svg>

@@ -1,53 +1,61 @@
 ---
 title: "Lab 004: Proprietary Capital Systems"
 publishedAt: "2026-06-01T12:00:00"
-lastModified: "2026-06-01T12:00:00"
-summary: "Documenting Lab 004, a live forex research and execution system built as a bigger sibling to Arasaka Neural Bastion."
-preview: "Lab 004 is the bigger sibling to Arasaka: a modular forex research, risk, paper execution, and live trading pipeline. It currently runs online with GBP 1,000 allocated to the live experiment."
+lastModified: "2026-06-25T12:00:00"
+summary: "A research case study for Lab 004, a months-long forex machine learning, execution, risk, and monitoring system that was ultimately stopped after the evidence did not justify continuing live operation."
+preview: "Lab 004 was a months-long attempt to turn a forex ML idea into a complete research system: data ingestion, features, regimes, model routing, strategy rules, backtests, risk reports, MT5 execution, scheduled jobs, logs, and guard rails. It did not become the performant trading system I hoped for, but it became a serious engineering and research artifact."
 published: "yes"
 featured: "yes"
 ---
 
-Lab 004 is the bigger sibling to Arasaka Neural Bastion.
+Lab 004 was the bigger sibling to Arasaka Neural Bastion.
 
-Arasaka started as a machine learning and forex research project: data, models, automation scripts, MQL5 integration, and the question of whether a system could be disciplined enough to reject weak signals. Lab 004 takes that idea further. It is less of a demo and more of an operating system for the whole research loop.
+Arasaka started as a machine learning and forex research project: data, models, automation scripts, MQL5 integration, and the question of whether a system could reject weak signals. Lab 004 pushed that idea into a fuller operating system for research: scheduled ingestion, feature generation, market regime detection, model routing, strategy construction, backtesting, portfolio risk aggregation, paper execution, broker reconciliation, live guard monitoring, and enough logs to inspect the system after the fact.
 
-It currently runs online with **GBP 1,000** allocated to the live trading experiment.
+I eventually stopped the project.
 
-That does not make it a finished trading product. It makes it real enough that the engineering matters more. A backtest can be wrong quietly. A notebook can be optimistic forever. A live system has to wake up on schedule, fetch data, survive broker constraints, reconcile positions, write logs, and keep enough evidence around for me to know what happened later.
+That is not the same as calling it a failure. It did not become as performant as I hoped, and the operational evidence showed too much fragility to justify continuing live execution. But it still represents months of design, implementation, deployment, observation, and revision. It is one of the projects that taught me the most because it forced the difference between a promising model and a complete system into the open.
 
-> This is a technical project note, not financial advice. Lab 004 is an experimental system for research, engineering, and controlled live testing.
+> This is a technical research case study, not financial advice. Lab 004 was an experimental system for engineering, machine learning, automation, and controlled live testing.
 
-## Why Build It?
+## Abstract
 
-Arasaka proved that the basic research direction was interesting. But it also showed the limit of having a project shaped mostly around model experiments.
+Lab 004 tested whether a modular H1 forex system could move from raw market data to model-driven positions and broker-aware execution without becoming a tangled research script.
 
-The next version needed more structure:
+The project produced a large operational record:
 
-- a clean data pipeline
-- explicit market-regime handling
-- repeatable feature generation
-- model training and inference paths
-- strategy construction
-- backtesting
-- portfolio risk aggregation
-- paper execution
-- broker reconciliation
-- live deployment discipline
+- 9,329 saved JSON report artifacts across pipeline modules
+- 370 hourly `m9` paper/execution reports
+- 6,506 `m9_loss_guard` monitor reports
+- 63 daily training reports
+- 63 risk reports
+- 120 order attempts recorded by M9
+- 88 successful M9 executions
+- 170 recorded target-vs-broker mismatches
+- 10 loss-guard breach closes
+- 3 daily stop triggers
 
-Lab 004 is my attempt to make those responsibilities visible and separate.
+The conclusion was mixed. The architecture worked well enough to create evidence, but the evidence did not support continuing the system as live capital infrastructure.
 
-<img
-  src="/writing/lab004/pipeline.svg"
-  alt="Lab 004 modular forex trading pipeline"
-  className="rounded-md shadow-md"
-/>
+## Research Question
 
-The project is organized as a Python package called `lab004-propcap`, short for **Trueblood Labs Lab 004 - Proprietary Capital Systems**. The name sounds dramatic, but the architecture is deliberately plain: each module owns one part of the pipeline.
+The project began with a practical question:
 
-## The Module Stack
+> Can I build a forex ML system disciplined enough to ingest data, train models, construct positions, execute through MT5, manage risk, and explain itself afterwards?
 
-The local project is split into modules that move from broker access through live operation:
+There were smaller questions inside that:
+
+- Can H1 data support a useful signal pipeline across six FX pairs?
+- Can market regimes route signals more carefully than one general-purpose model?
+- Can strategy rules reduce churn, weekend risk, and high-volatility exposure?
+- Can live execution stay aligned with model targets?
+- Can logs and reports make the system auditable after a bad run?
+
+The answer was not a clean yes or no. The system could run, record, and self-criticize. The performance and reliability did not clear the bar.
+
+## System Shape
+
+The project was organized as a Python package called `lab004-propcap`, short for **Trueblood Labs Lab 004 - Proprietary Capital Systems**. Its shape was deliberately modular:
 
 - `m0_broker`: MetaTrader 5 connection and broker-facing utilities
 - `m1_data`: bar ingestion
@@ -58,16 +66,43 @@ The local project is split into modules that move from broker access through liv
 - `m6_strategy`: position construction and strategy rules
 - `m7_backtest`: backtest engine
 - `m8_risk`: portfolio aggregation and risk reporting
-- `m9_paper`: paper execution and reconciliation
-- `m10_live`: live-operation boundary
+- `m9_paper`: paper execution, live execution boundary, and reconciliation
+- `m9_loss_guard`: guard process for breached positions and daily stops
 
-The important design choice is that model output is not the system. Model output is one stage in a longer chain. By the time a signal becomes a position, it has passed through regime logic, strategy filters, risk logic, broker constraints, and reconciliation.
+<img
+  src="/writing/lab004/pipeline.svg"
+  alt="Lab 004 modular forex trading pipeline"
+  className="rounded-md shadow-md"
+/>
 
-That is the right shape for this kind of project because the easiest way to fool yourself is to let a model score look like a complete decision.
+The important design choice was that model output never became the whole decision. A signal had to pass through regime logic, confidence thresholds, cooldowns, minimum hold periods, high-volatility filters, weekend rules, stop logic, broker constraints, and reconciliation.
 
-## The Trading Universe
+That shape was useful even when the results disappointed me. It made the system harder to fool because the output left a trail.
 
-The current H1 universe contains six forex pairs:
+## Evidence Inventory
+
+The final local snapshot contains thousands of saved reports. They are not glamorous, but they are the part of the project I trust most.
+
+<img
+  src="/writing/lab004/research-evidence-inventory.svg"
+  alt="Bar chart showing Lab 004 saved report counts by module"
+  className="rounded-md shadow-md"
+/>
+
+The report inventory shows the project was not a single notebook or one lucky backtest. It produced repeated evidence across the full loop:
+
+- `m1` through `m4` tracked ingestion, cleaning, features, and regimes.
+- `m5` and `m5_train` tracked signal generation and model refreshes.
+- `m6` tracked position construction and strategy filters.
+- `m7` and `m8` tracked backtests and portfolio risk.
+- `m9` tracked broker-facing execution state.
+- `m9_loss_guard` tracked minutely guard checks and risk exits.
+
+This is why I still consider the project valuable. The logs do not let me remember it as better than it was.
+
+## Trading Universe And Runtime
+
+The H1 universe covered six forex pairs:
 
 - `EURUSD`
 - `GBPUSD`
@@ -76,83 +111,176 @@ The current H1 universe contains six forex pairs:
 - `USDCAD`
 - `USDCHF`
 
-The system stores data in Parquet, builds features per symbol, produces per-symbol positions, then aggregates risk at the portfolio level. The H1 cadence makes the system active enough to be interesting without requiring low-latency infrastructure.
+The system stored data in Parquet, generated features per symbol, wrote positions per symbol, and aggregated portfolio risk. It ran hourly execution checks and daily training/evaluation jobs. In the later operational snapshot, the config used:
 
-That cadence also fits the operational model: scheduled hourly checks and daily train/evaluate tasks.
+- `skip_high_vol: true`
+- `confidence_min: 0.34`
+- `cooldown_bars: 24`
+- `min_hold_bars: 24`
+- `friday_no_new_entries_hour_utc: 20`
+- `friday_flatten_hour_utc: 21`
+- `monday_force_flat: true`
+- `stop_loss_atr_mult: 2.0`
+- `take_profit_atr_mult: 0.0`
+- `max_hold_bars: 168`
+- `lot_size: 0.20`
 
-## Risk Snapshot
+Those numbers tell part of the story. The system became more defensive over time. It moved away from optimistic trading behavior and toward filtering, flattening, pausing, and guard rails.
 
-One of the latest local risk reports I inspected was `risk_h1_fe0849461c`, generated on March 23, 2026. It reported a six-symbol H1 portfolio with:
+## Performance Progression
 
-- `portfolio_sharpe_like`: `1.8679`
-- `portfolio_total_pnl_net`: `14.5940`
-- `portfolio_max_drawdown`: `-1.4732`
-- `portfolio_method`: `equal_weight`
-
-Those numbers are useful, but they need context. A separate project assessment already identified a major issue: raw PnL values are not normalized across symbols before aggregation. That matters because JPY pairs naturally produce larger raw price moves than five-decimal pairs. Without normalization, portfolio statistics can become biased.
+The risk reports are the clearest place to see the project's arc. The final snapshot contains 63 M8 portfolio risk reports between April 13, 2026 and June 15, 2026.
 
 <img
-  src="/writing/lab004/risk-snapshot.svg"
-  alt="Lab 004 risk snapshot showing six-symbol coverage, latest risk report metrics, and live allocation"
+  src="/writing/lab004/risk-progression.svg"
+  alt="Line chart showing Lab 004 portfolio risk progression over saved M8 reports"
   className="rounded-md shadow-md"
 />
 
-This is exactly why I like the project. It does not just produce nice metrics. It creates enough evidence to criticize its own metrics.
+The latest saved M8 report on June 15, 2026 recorded:
 
-## From Paper to Live
+- `portfolio_total_pnl_net`: `7.7726`
+- `portfolio_sharpe_like`: `1.1483`
+- `portfolio_max_drawdown`: `-1.0393`
+- `portfolio_method`: `equal_weight`
 
-The paper execution layer is where the system becomes more serious. A recent paper report showed `execute_orders: true`, `lot_size: 0.01`, and per-symbol actions like `HOLD`, current positions, target positions, stop-loss values, and checks that positions stayed inside the expected set.
+The best saved portfolio PnL report in this snapshot was April 29, 2026:
 
-That layer forces the system to answer operational questions:
+- `portfolio_total_pnl_net`: `10.2687`
+- `portfolio_sharpe_like`: `1.5181`
+- `portfolio_max_drawdown`: `-0.9519`
 
-- What position do we want?
-- What position do we currently have?
-- Did we attempt an order?
-- Did it execute?
-- Did the broker position match the target after the run?
-- Were there errors?
+The weakest saved portfolio PnL report was May 29, 2026:
 
-The live version builds on that same discipline. A live account with GBP 1,000 is not large in capital terms, but it is large in seriousness terms. It means every assumption has somewhere to land.
+- `portfolio_total_pnl_net`: `4.3550`
+- `portfolio_sharpe_like`: `0.6278`
+- `portfolio_max_drawdown`: `-1.4843`
 
-## What the V2 Assessment Taught Me
+Those numbers were not terrible as research outputs, but they were not enough. A separate V2 assessment also found that the portfolio and backtest normalization were flawed because raw PnL was aggregated across pairs without putting every symbol onto a common unit system. That meant USDJPY could dominate portfolio statistics because its raw price scale is different from five-decimal pairs.
 
-The most useful project document so far is not a victory lap. It is the V2 upgrade assessment.
+That finding changed how I read the whole project. Some positive-looking reports were real evidence of a running system, but not reliable evidence of a deployable edge.
 
-It identified several things that matter more than another small threshold tweak:
+## Runtime Progression
 
-- normalize portfolio and backtest PnL before comparing symbols
-- cover the high-volatility regime instead of routing too much of the market to no model
+The project also taught me that runtime is part of research quality. If a system is supposed to run hourly and daily, its jobs need to be predictable.
+
+<img
+  src="/writing/lab004/pipeline-runtime-progression.svg"
+  alt="Line chart showing Lab 004 report-derived run durations for execution, training, and risk jobs"
+  className="rounded-md shadow-md"
+/>
+
+The hourly execution loop was usually measured in seconds to a little over a minute. Training took longer and varied more, as expected. Risk aggregation stayed comparatively small. This mattered because the system could fit into a practical schedule: hourly checks at `:05`, daily train/evaluate around `23:45`, and minutely loss-guard monitoring.
+
+The useful lesson was not "the jobs were fast." It was that the jobs had become measurable. Once runtime is measurable, it can become an operational constraint instead of a vague feeling.
+
+## Execution And Reconciliation
+
+The M9 layer was where the project stopped being only a model pipeline.
+
+<img
+  src="/writing/lab004/execution-reconciliation.svg"
+  alt="Chart showing Lab 004 M9 execution attempts, successful executions, disabled execution reports, and target-broker mismatches"
+  className="rounded-md shadow-md"
+/>
+
+The final M9 report set recorded:
+
+- 370 paper/execution reports
+- 310 reports with order execution enabled
+- 60 reports with order execution disabled
+- 120 order attempts
+- 88 successful executions
+- 170 target-vs-broker mismatches
+- 0 M9 report errors
+
+That mismatch count is one of the reasons I stopped trusting the system as live infrastructure. A model can be approximately right and the system can still fail at the execution boundary. The broker position after a run matters more than the target position on disk.
+
+Late in the run, the latest M9 reports on June 16 showed `execute_orders: false` even though the copied config still had `m9.execute_orders: true`. That suggests the project had operational pause behavior or a runtime override beyond the static config. That is the kind of fact a research write-up should keep visible.
+
+## Loss Guard Monitoring
+
+The loss guard was added because normal hourly execution was not enough. I wanted a smaller, more frequent process that could watch live positions and close breached trades.
+
+<img
+  src="/writing/lab004/loss-guard-monitor.svg"
+  alt="Chart showing Lab 004 loss guard checks, breached position closes, and daily stop triggers"
+  className="rounded-md shadow-md"
+/>
+
+The `m9_loss_guard` report set recorded:
+
+- 6,506 guard reports
+- 10 breached positions
+- 10 guard closes
+- 3 daily stop triggers
+- 1 JSON report with an error
+
+The plain `loss_guard.log` also captured earlier startup failures. There were repeated MT5 initialization errors, mostly `Terminal: Authorization failed`, plus a couple of `IPC timeout` failures. Later JSON reports showed the guard connecting again and writing clean checks, but those startup failures mattered. They showed that live monitoring is only as reliable as the terminal, session, and credentials underneath it.
+
+This is the kind of engineering lesson that does not show up in a backtest.
+
+## Why I Stopped It
+
+I stopped Lab 004 because the project had reached a point where the evidence was more valuable than another round of optimism.
+
+The main reasons were:
+
+- Performance did not justify live continuation.
+- Portfolio metrics were not trustworthy enough until PnL normalization was fixed.
+- Broker-target mismatches were too frequent.
+- Execution state could diverge from config state.
+- Loss-guard reliability depended on MT5 session health.
+- High-volatility market coverage still needed a better model or policy.
+- The reporting layer was strong enough to show the weaknesses clearly.
+
+That last point is important. I did not stop it because there was no work left. I stopped it because the next work would have been a serious V2 rebuild, not a small polish pass.
+
+## What The V2 Assessment Taught Me
+
+The V2 assessment was the most useful document the project produced. It identified the work that would have needed to happen before I could responsibly treat the system as more than a research experiment:
+
+- normalize PnL to pips, returns, or USD-equivalent values before portfolio aggregation
 - harden broker execution and post-trade reconciliation
-- improve model observability and training diagnostics
-- make the market calendar session-aware
+- add symbol-level execution capability discovery
+- validate stop distances against broker constraints before sending orders
+- report walk-forward model diagnostics by symbol and regime
+- cover high-volatility regimes instead of suppressing a large slice of the market
+- distinguish normal market closure from unexpected missing bars
+- separate `row_state`, `entry_reason`, and `exit_reason` in strategy reports
 
-That is the grown-up version of the project. More models are tempting. Better measurement is more valuable.
+The project did not need a prettier chart. It needed stronger measurement.
+
+## What Still Worked
+
+Even with the final decision to stop, several parts of the project worked as intended:
+
+- The module boundaries made the system easier to inspect.
+- Scheduled jobs produced a consistent operational record.
+- Report artifacts gave me a research trail instead of relying on memory.
+- M6 strategy rules made risk policy visible.
+- M9 reports exposed broker mismatch problems directly.
+- Loss guard reporting captured real risk-control behavior.
+- The system produced enough evidence to argue against itself.
+
+That is a real outcome. It is not the outcome I wanted at the start, but it is a good engineering outcome.
 
 ## The Difference From Arasaka
 
-Arasaka was about proving the direction. Lab 004 is about operationalizing the loop.
-
-Arasaka asks:
+Arasaka asked:
 
 > Can machine learning produce useful forex signals?
 
-Lab 004 asks:
+Lab 004 asked:
 
-> Can a complete system ingest data, build signals, test them, size them, execute them, reconcile them, and explain itself afterwards?
+> Can a complete system ingest data, build signals, test them, size them, execute them, reconcile them, monitor them, and explain itself afterwards?
 
-That second question is harder, but more useful. It forces me to treat the project as a system of responsibilities rather than a pile of promising experiments.
+That second question is harder. It is also more honest. It forced me to see the entire chain: data, model, strategy, risk, broker, scheduler, logs, and human decision.
 
-## Where It Goes Next
+## Final Notes
 
-The next work is not glamorous, which usually means it is important:
+Lab 004 did not become the capital system I hoped it would become.
 
-- normalize PnL into a common unit before portfolio aggregation
-- add richer walk-forward model diagnostics
-- add stronger broker capability discovery
-- improve reconciliation retries and mismatch alerts
-- separate normal market closure from unexpected missing bars
-- make live monitoring easier to inspect at a glance
+But it did become a serious research project. It taught me how much of machine learning engineering lives outside the model. It taught me that logs are not an afterthought. It taught me that a system which can prove its own limits is more valuable than a demo that only shows its best day.
 
-The lesson from Lab 004 is that the edge is not only in the model. It is in the whole chain of disciplined decisions around the model.
-
-That is what makes it the bigger sibling to Arasaka. It is not trying to look smarter. It is trying to be harder to fool.
+I am keeping it in the portfolio because it represents the kind of work that is easy to underestimate from the outside: months of small decisions, late fixes, failed assumptions, runbooks, metrics, scheduled tasks, guard rails, and the discipline to stop when the evidence says stop.
